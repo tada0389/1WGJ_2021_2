@@ -105,7 +105,7 @@ namespace TadaLib
 
             // 右方向
             {
-                RaycastHit2D hit_left = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.3f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.left,
+                RaycastHit2D hit_left = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.05f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.left,
                         halfSize.x / 2f, collideMask);
                 Debug.DrawLine(origin, origin - (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
                 if (hit_left) LeftCollide = true;
@@ -113,7 +113,7 @@ namespace TadaLib
 
             // 左方向
             {
-                RaycastHit2D hit_right = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.3f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.right,
+                RaycastHit2D hit_right = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.05f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.right,
                     halfSize.x / 2f, collideMask);
                 Debug.DrawLine(origin, origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
 
