@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TadaLib;
+using KoitanLib;
 
 namespace MainGame.Actor
 {
@@ -59,6 +60,8 @@ namespace MainGame.Actor
         {
             // 状態を更新する
             stateMachine.Proc();
+            string s = "state : " + stateMachine.ToString();
+            KoitanDebug.DisplayBox(s, this);
         }
     }
 } // namespace Main.Actor
