@@ -1544,8 +1544,25 @@ MonoBehaviour:
   <Velocity>k__BackingField: {x: 0, y: 0}
   <Accel>k__BackingField: {x: 0, y: -0.3}
   maxAbsSpeed: {x: 10, y: 0.4}
-  jumpPower_: 0.16
-  rotater_: {fileID: 1972740942}
+  stateWalk:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: 0}
+  stateJump:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: -0.3}
+    jumpPower: 0.11
+    jumpEnableDuration: 1
+    appealEnableSpeed: 0.05
+  stateFall:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: -0.3}
+  stateSuper:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: 0}
+  stateDead:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: 0}
+  rotater: {fileID: 0}
 --- !u!212 &1666373941
 SpriteRenderer:
   m_ObjectHideFlags: 0
