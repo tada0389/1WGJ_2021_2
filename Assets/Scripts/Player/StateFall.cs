@@ -14,6 +14,10 @@ namespace MainGame.Actor
         [System.Serializable]
         private class StateFall : StateMachine<PlayerController>.StateBase
         {
+            // コヨーテタイム
+            [SerializeField]
+            private float rejumpEnableDuration = 0.2f;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -40,6 +44,13 @@ namespace MainGame.Actor
                 if (Parent.trb.ButtomCollide)
                 {
                     ChangeState((int)eState.Walk);
+                    return;
+                }
+
+                // 落下直後は再ジャンプできる
+                if(Input.GetMouseButtonDown(0) && PrevStateId == (int)eState.Walk && Timer <= rejumpEnableDuration)
+                {
+                    ChangeState((int)eState.Jump);
                     return;
                 }
             }

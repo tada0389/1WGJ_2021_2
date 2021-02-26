@@ -61,7 +61,7 @@ public class StageObjectManager : MonoBehaviour
     {
         foreach(var obj in objects)
         {
-            obj.Init(new Vector2(120f, 7.0f));
+            obj.Init(new Vector2(120f, 7.0f), transform.position);
         }
 
         curPattern = patterns[Random.Range(0, patterns.Count)];
@@ -93,7 +93,7 @@ public class StageObjectManager : MonoBehaviour
             if (id >= 0)
             {
                 var obj = (BaseStageObject)Instantiate(objectPrefabs[id]);
-                obj.Init(new Vector2(270.0f, 0.0f));
+                obj.Init(new Vector2(270.0f, 0.0f), transform.position);
                 objects.Add(obj);
             }
         }

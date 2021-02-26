@@ -24,10 +24,16 @@ public class BaseStageObject : MonoBehaviour
 
     public bool Destoryed { private set; get; }
 
-    public void Init(Vector2 pos)
+    public void Init(Vector2 pos, Vector2 center)
     {
         Position = pos;
         Destoryed = false;
+
+        // 正しい座標へと変換
+        transform.position = center + new Vector2(Mathf.Cos(Position.x * Mathf.Deg2Rad), Mathf.Sin(Position.x * Mathf.Deg2Rad)) * Position.y;
+
+        // 角度も合わせる
+        transform.eulerAngles = new Vector3(0f, 0f, Position.x - 90.0f);
     }
 
     // 座標を更新する centerは惑星の中心座標
@@ -39,7 +45,8 @@ public class BaseStageObject : MonoBehaviour
         while (newPosX > 360f) newPosX -= 360.0f;
 
         // y軸の移動
-        float newPosY = Position.y + Velocity.y * rotateSpeed;
+        //float newPosY = Position.y + Velocity.y * rotateSpeed;
+        float newPosY = Vector2.Distance(transform.position, center) + Velocity.y * rotateSpeed; // 最新のy座標を使う
         //if(newPosY < 7.0f) // とりあえずこうなったら接置判定
         //{
         //    Speed = new Vector2(Speed.x, 0.0f);
