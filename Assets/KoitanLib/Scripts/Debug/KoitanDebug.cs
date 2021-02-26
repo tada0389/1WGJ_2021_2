@@ -16,6 +16,8 @@ namespace KoitanLib
             if (instance == null)
             {
                 instance = this;
+                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(dtm);
             }
             else
             {
