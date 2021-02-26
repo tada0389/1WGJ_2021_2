@@ -50,7 +50,7 @@ namespace MainGame.Actor
             stateMachine.AddState((int)eState.Dead, stateDead);
 
             // 始めのステートを設定
-            stateMachine.SetInitialState((int)eState.Walk);
+            stateMachine.SetInitialState((int)eState.Fall);
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
         }
