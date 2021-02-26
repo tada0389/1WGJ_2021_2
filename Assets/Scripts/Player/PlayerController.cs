@@ -34,7 +34,7 @@ namespace MainGame.Actor
         private StateDead stateDead;
         #endregion
 
-        private TadaLib.TadaRigidbody trb;
+        private TadaLib.TadaRigidbody2D trb;
         [SerializeField]
         private SimpleRotater rotater;
 
@@ -52,7 +52,7 @@ namespace MainGame.Actor
             // 始めのステートを設定
             stateMachine.SetInitialState((int)eState.Walk);
 
-            trb = GetComponent<TadaLib.TadaRigidbody>();
+            trb = GetComponent<TadaLib.TadaRigidbody2D>();
         }
 
         private void Update()

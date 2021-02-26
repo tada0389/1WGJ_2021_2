@@ -26,11 +26,15 @@ namespace MainGame.Actor
             [SerializeField]
             private float appealEnableSpeed = 0.01f;
 
+            private bool doubleJumped = false;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
                 Parent.Accel = this.Accel;
                 Parent.Velocity = new Vector2(Parent.Velocity.x, jumpPower);
+
+                doubleJumped = false;
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -57,9 +61,13 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプボタン長押し
-                if (Input.GetMouseButton(0) && Timer <= jumpEnableDuration)
+                if (Input.GetMouseButton(0) && Timer <= jumpEnableDuration && !doubleJumped)
                 {
                     Parent.Velocity = new Vector2(Parent.Velocity.x, jumpPower);
+                }
+                else
+                {
+                    doubleJumped = true;
                 }
 
                 // ジャンプボタン＋頂点付近ならアピール
