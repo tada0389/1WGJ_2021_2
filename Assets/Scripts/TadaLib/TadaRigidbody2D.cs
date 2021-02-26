@@ -90,7 +90,7 @@ namespace TadaLib
                 if (hitDownRight) upLength = Mathf.Max(upLength, length - hitDownRight.distance);
                 
                 // 盛り上がった
-                if(upLength > -kEpsilon)
+                if(upLength > -0.1f)
                 {
                     ButtomCollide = true;
                     float rotZ = transform.eulerAngles.z * Mathf.Deg2Rad + Mathf.PI / 2.0f; // 要調整
