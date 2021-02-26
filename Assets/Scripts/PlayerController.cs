@@ -29,13 +29,14 @@ namespace MainGame
 
             if (Position.x <= 119.5f && trb_.ButtomCollide)
             {
-                Velocity = new Vector2(0.0f, Velocity.y);
+                Velocity = new Vector2(0.2f, Velocity.y);
                 rotater_.enabled = false;
                 IsBoosting = false;
             }
             else
             {
-                Velocity = new Vector2((IsBoosting)? 1.6f : 1.0f, Velocity.y);
+                if (IsBoosting) Velocity = new Vector2(1.6f, Velocity.y);
+                else Velocity = new Vector2(1.0f, Velocity.y);
                 rotater_.enabled = true;
             }
             if (Input.GetMouseButtonDown(0) && trb_.ButtomCollide)
@@ -45,15 +46,15 @@ namespace MainGame
 
             if (Input.GetMouseButtonDown(1) && !trb_.ButtomCollide)
             {
-                Velocity = new Vector2(1.6f, Velocity.y);
+                Velocity = new Vector2(1.6f, -0.1f);
                 IsBoosting = true;
             }
         }
 
-        private void OnDestroy()
-        {
-            Reset();   
-        }
+        //private void OnDestroy()
+        //{
+        //    Reset();   
+        //}
 
         private void Reset()
         {
