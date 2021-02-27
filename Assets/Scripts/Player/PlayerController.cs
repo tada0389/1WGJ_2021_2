@@ -4,6 +4,7 @@ using UnityEngine;
 using TadaLib;
 using KoitanLib;
 using TadaInput;
+using UnityEngine.UI;
 
 namespace MainGame.Actor
 {
@@ -40,13 +41,22 @@ namespace MainGame.Actor
 
         private BasePlayerInput input;
 
-        private int appealGage = 50;
+        private int appealGauge = 50;
 
         [SerializeField]
-        private int needAppealGage = 10;
+        private int needAppealGauge = 10;
+
+        [SerializeField]
+        private int addAppealGaugeAmount = 5;
+
+        [SerializeField]
+        private int maxAppealGauge = 100;
 
         [SerializeField]
         private SimpleRotater rotater;
+
+        [SerializeField]
+        private Image appealGaugeGraph;
 
         private void Start()
         {
@@ -64,6 +74,8 @@ namespace MainGame.Actor
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
             input = GetComponent<BasePlayerInput>();
+
+            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
 
         private void Update()
@@ -77,12 +89,18 @@ namespace MainGame.Actor
         // 無敵状態になれるか
         private bool MutekiRequest()
         {
-            return appealGage >= needAppealGage;
+            return appealGauge >= needAppealGauge;
         }
 
-        private void UseAppealGage()
+        private void UseAppealGauge()
         {
-            appealGage -= needAppealGage;
+            appealGauge = Mathf.Max(appealGauge - needAppealGauge, 0);
+        }
+
+        private void AddAppealGauge()
+        {
+            appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
+            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
     }
 } // namespace Main.Actor

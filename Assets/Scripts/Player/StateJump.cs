@@ -88,6 +88,7 @@ namespace MainGame.Actor
                 // ジャンプボタン＋頂点付近ならアピール
                 if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
                 {
+                    Parent.AddAppealGauge();
                     appearlEff.gameObject.SetActive(true);
                     appearlEff.Play();
                 }

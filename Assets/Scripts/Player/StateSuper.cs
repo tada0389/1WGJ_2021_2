@@ -25,7 +25,7 @@ namespace MainGame.Actor
             public override void OnStart()
             {
                 // アピールゲージの消費
-                Parent.UseAppealGage();
+                Parent.UseAppealGauge();
 
                 // 右上に飛ばす
                 Parent.Velocity = power;
