@@ -34,20 +34,18 @@ public class RotationTrailController : MonoBehaviour
         Debug.DrawLine(Vector3.zero, p, Color.black);
         */
         poses.RemoveAt(length - 1);
-        poses.Insert(0, target.position);
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < length - 1; i++)
         {
             var angleAxis = Quaternion.AngleAxis(omega * Time.deltaTime, Vector3.forward);
             poses[i] -= center.position;
             poses[i] = angleAxis * poses[i];
             poses[i] += center.position;
+        }
+        poses.Insert(0, target.position);
+        for (int i = 0; i < length; i++)
+        {
             line.SetPosition(i, poses[i]);
         }
-        for (int i = 0; i < length - 1; i++)
-        {
-            Debug.DrawLine(poses[i], poses[i + 1], Color.black);
-        }
-        Debug.DrawLine(target.position, center.position, Color.black);
     }
 
     public void SetOmega(float _omega)
