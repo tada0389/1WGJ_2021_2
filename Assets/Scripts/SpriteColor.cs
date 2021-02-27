@@ -44,7 +44,8 @@ public class SpriteColor : MonoBehaviour
     // 光らせる
     public void Flash()
     {
-        transform.DOPunchScale(Vector3.one * (defaultScale * flashPower), flashDuration);
+        transform.DOKill();
+        transform.DOPunchScale(Vector3.one * (defaultScale * flashPower), flashDuration).OnComplete(() => transform.localScale = Vector3.one * defaultScale);
         isFlashing = true;
         flashStartTime = Time.time;
         //float h, s, v;
