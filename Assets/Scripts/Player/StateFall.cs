@@ -23,6 +23,9 @@ namespace MainGame.Actor
             {
                 Parent.Velocity = new Vector2(1.0f, 0.0f);
                 Parent.Accel = this.Accel;
+
+                // 回転
+                Parent.rotater.StopRotate();
             }
 
             // ステートが終了したときに呼ばれるメソッド

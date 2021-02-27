@@ -17,8 +17,11 @@ namespace MainGame.Actor
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
-                Parent.Velocity = new Vector2(0.0f, 0.0f);
+                Parent.Velocity = new Vector2(0.5f, 0.0f);
                 Parent.Accel = this.Accel;
+
+                // 回転
+                Parent.rotater.StartRotate();
             }
 
             // ステートが終了したときに呼ばれるメソッド

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8364456170776636674}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.32000017, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_Children:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxPositionXRange: {x: 45, y: 120}
-  <Velocity>k__BackingField: {x: 0, y: 0}
+  <Velocity>k__BackingField: {x: 1, y: 0}
   <Accel>k__BackingField: {x: 0, y: -0.3}
   maxAbsSpeed: {x: 10, y: 0.4}
   stateWalk:
@@ -126,7 +126,7 @@ MonoBehaviour:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: 0, y: 0}
   needAppealGage: 10
-  rotater: {fileID: 0}
+  rotater: {fileID: 8364456171611795681}
 --- !u!61 &8364456170776636687
 BoxCollider2D:
   m_ObjectHideFlags: 0
