@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e12bbac40ed12f46b0399044f54fdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxPositionXRange: {x: 0, y: 360}
   <Velocity>k__BackingField: {x: 0, y: 0}
   <Accel>k__BackingField: {x: 0, y: 0}
   maxAbsSpeed: {x: 10, y: 0.5}

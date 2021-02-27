@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b34de699c1ff3e4391733ec80a18928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: {x: 0, y: 0}
+  MaxPositionXRange: {x: 0, y: 360}
+  <Velocity>k__BackingField: {x: 0, y: 0}
   <Accel>k__BackingField: {x: 0, y: 0}
   maxAbsSpeed: {x: 10, y: 0.5}
 --- !u!1 &3993928186811444888
