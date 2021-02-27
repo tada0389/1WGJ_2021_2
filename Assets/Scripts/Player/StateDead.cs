@@ -27,6 +27,9 @@ namespace MainGame.Actor
 
                 deadEff.gameObject.SetActive(true);
                 deadEff.Play();
+
+                // カメラ揺らす
+                CameraSpace.CameraShaker.Shake(0.2f, 0.5f);
             }
 
             // ステートが終了したときに呼ばれるメソッド
