@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 /// <summary>
 /// 惑星の回転速度と同じ速度で動く通常のオブジェクト
@@ -20,6 +21,8 @@ public class StaticStageObject : BaseStageObject
             var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
             foreach(var col in cols)
             {
+                //ふっとんだとき回転させる
+                col.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
                 col.enabled = false;
             }
         }

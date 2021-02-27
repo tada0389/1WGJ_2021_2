@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 547661907}
   - component: {fileID: 547661906}
   - component: {fileID: 547661909}
+  - component: {fileID: 547661910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -594,6 +595,22 @@ MonoBehaviour:
     min_zoom_: 85
     max_zoom_: 75
     zoom_limiter_: 60
+--- !u!114 &547661910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547661905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f412065878d46c5becf037e6531d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 3ccdcbe38677f4acb8b55ad3f5defec5, type: 3}
+  spacing: 1.5
+  size: 1
+  blur: 0
 --- !u!1 &779539037
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 60
+  rotateSpeedAccel: 1
   spawnIntervalDegree: 39
   objectPrefabs:
   - {fileID: 1557990690897126821, guid: 1ed0fda40e3ee98459205685878ac500, type: 3}
@@ -802,6 +820,7 @@ MonoBehaviour:
   - indicies: feffffff
   scoreText: {fileID: 1621005526}
   highScoreText: {fileID: 1933304805}
+  trail: {fileID: 0}
 --- !u!4 &906559422
 Transform:
   m_ObjectHideFlags: 0
