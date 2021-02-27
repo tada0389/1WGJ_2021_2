@@ -77,9 +77,10 @@ namespace TadaLib
                 // 左端，中央，右端の順に確かめる
                 Vector2 originLeft = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(-halfSize.x * 0.8f, 0f));
                 Vector2 originRight = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x * 0.8f, 0f));
-                RaycastHit2D hitDownLeft = LinecastWithGizmos(originLeft, originLeft + new Vector2(0f, -lengthY), collideMask);
-                RaycastHit2D hitDownCenter = LinecastWithGizmos(origin, origin + new Vector2(0f, -lengthY), collideMask);
-                RaycastHit2D hitDownRight = LinecastWithGizmos(originRight, originRight + new Vector2(0f, -lengthY), collideMask);
+                Vector2 dir = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, -lengthY);
+                RaycastHit2D hitDownLeft = LinecastWithGizmos(originLeft, originLeft + dir, collideMask);
+                RaycastHit2D hitDownCenter = LinecastWithGizmos(origin, origin + dir, collideMask);
+                RaycastHit2D hitDownRight = LinecastWithGizmos(originRight, originRight + dir, collideMask);
 
                 // めり込んでいる分は上に持ち上げる
                 float length = halfSize.y; // 地面までの通常の距離
@@ -103,28 +104,46 @@ namespace TadaLib
                 // やっぱやらない 今回は必要なさそう
             }
 
-            // 右方向
-            {
-                RaycastHit2D hit_left = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.05f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.left,
-                        halfSize.x / 2f, collideMask);
-                Debug.DrawLine(origin, origin - (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
-                if (hit_left) LeftCollide = true;
-            }
-
+            // ちょっと上方向から飛ばす
+            Vector2 originOffset = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, halfSize.y * 0.15f);
+            // 通常のレイキャストでやる
             // 左方向
             {
-                RaycastHit2D hit_right = Physics2D.BoxCast(origin, new Vector2(halfSize.x, halfSize.y * 0.05f), 0f, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.right,
-                    halfSize.x / 2f, collideMask);
-                Debug.DrawLine(origin, origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
-
-                if (hit_right) RightCollide = true;
+                Vector2 newOrigin = origin + originOffset;
+                Vector2 dir = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(-lengthX, 0.0f);
+                RaycastHit2D hitLeft = LinecastWithGizmos(newOrigin, newOrigin + dir, collideMask);
+                if (hitLeft) LeftCollide = true;
             }
+            // 右方向
+            {
+                Vector2 newOrigin = origin + originOffset;
+                Vector2 dir = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(lengthX, 0.0f);
+                RaycastHit2D hitRight = LinecastWithGizmos(newOrigin, newOrigin + dir, collideMask);
+                if (hitRight) RightCollide = true;
+            }
+
+            //// 左方向
+            //{
+            //    RaycastHit2D hit_left = Physics2D.BoxCast(origin + originOffset, new Vector2(halfSize.x, halfSize.y * 0.05f), -transform.eulerAngles.z, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.left,
+            //            halfSize.x / 2f, collideMask);
+            //    Debug.DrawLine(origin + originOffset, origin + originOffset - (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
+            //    if (hit_left) LeftCollide = true;
+            //}
+
+            //// 右方向
+            //{
+            //    RaycastHit2D hit_right = Physics2D.BoxCast(origin + origin, new Vector2(halfSize.x, halfSize.y * 0.05f), -transform.eulerAngles.z, Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * Vector2.right,
+            //        halfSize.x / 2f, collideMask);
+            //    Debug.DrawLine(origin + originOffset, origin + originOffset + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x, 0f)), Color.blue);
+
+            //    if (hit_right) RightCollide = true;
+            //}
         }
 
         // レイキャストを飛ばす(+ Debugの線を引く)
         RaycastHit2D LinecastWithGizmos(Vector2 from, Vector2 to, int layer_mask)
         {
-            RaycastHit2D hit = Physics2D.Linecast(from, (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * to), layer_mask);
+            RaycastHit2D hit = Physics2D.Linecast(from, to, layer_mask);
             Debug.DrawLine(from, (hit) ? to : to);
             return hit;
         }
