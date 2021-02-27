@@ -294,6 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &170278071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8364456171611795687, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8364456170979024709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &351302219 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
@@ -2915,6 +2921,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
+      propertyPath: stateDead.destoryObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
       propertyPath: <Velocity>k__BackingField.x
       value: 1
       objectReference: {fileID: 0}
@@ -2958,6 +2969,21 @@ PrefabInstance:
       propertyPath: stateDead.trailer
       value: 
       objectReference: {fileID: 1411848246}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateDead.destoryObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 988291831}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateDead.destoryObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1166496332}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateDead.destoryObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 170278071}
     - target: {fileID: 8377989481809904981, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: m_RootOrder
