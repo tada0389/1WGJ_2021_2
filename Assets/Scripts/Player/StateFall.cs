@@ -21,6 +21,7 @@ namespace MainGame.Actor
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
+                Parent.Velocity = new Vector2(1.0f, 0.0f);
                 Parent.Accel = this.Accel;
             }
 

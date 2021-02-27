@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3274d9f68484c4782ff1ea0b03a469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxPositionXRange: {x: 45, y: 120}
   <Velocity>k__BackingField: {x: 0, y: 0}
   <Accel>k__BackingField: {x: 0, y: -0.3}
   maxAbsSpeed: {x: 10, y: 0.4}
@@ -120,6 +121,7 @@ MonoBehaviour:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: -2, y: -0.4}
     power: {x: 2.5, y: 0.1}
+    mutekiDuration: 1
   stateDead:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: 0, y: 0}

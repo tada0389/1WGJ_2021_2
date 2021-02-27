@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class BaseStageObject : MonoBehaviour
 {
+    [SerializeField]
+    private Vector2 MaxPositionXRange = new Vector2(0.0f, 360.0f);
+
     // 座標 (x = [0,360), y = [0, ∞))
     public Vector2 Position { private set; get; }
 
@@ -43,6 +46,7 @@ public class BaseStageObject : MonoBehaviour
         float newPosX = Position.x - Velocity.x * rotateSpeed + rotateSpeed;
         while (newPosX < 0f) newPosX += 360.0f;
         while (newPosX > 360f) newPosX -= 360.0f;
+        newPosX = Mathf.Clamp(newPosX, MaxPositionXRange.x, MaxPositionXRange.y);
 
         // y軸の移動
         //float newPosY = Position.y + Velocity.y * rotateSpeed;
