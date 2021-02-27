@@ -50,6 +50,13 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
+                // 無敵モード
+                if (Parent.MutekiRequest() && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseRight))
+                {
+                    ChangeState((int)eState.Super);
+                    return;
+                }
+
                 // 自身の左右が壁に当たったら死亡
                 if (Parent.trb.RightCollide || Parent.trb.LeftCollide)
                 {
@@ -65,7 +72,7 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプボタン長押し
-                if (Input.GetMouseButton(0) && Timer <= jumpEnableDuration && !doubleJumped)
+                if (Parent.input.GetButton(TadaInput.ButtonCode.MouseLeft) && Timer <= jumpEnableDuration && !doubleJumped)
                 {
                     Parent.Velocity = new Vector2(Parent.Velocity.x, jumpPower);
                 }
@@ -75,11 +82,10 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプボタン＋頂点付近ならアピール
-                if (Input.GetMouseButtonDown(0) && Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed)
+                if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
                 {
                     appearlEff.gameObject.SetActive(true);
                     appearlEff.Play();
-                    Debug.Log("appeal");
                 }
             }
         }

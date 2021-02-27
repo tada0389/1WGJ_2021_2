@@ -38,7 +38,12 @@ namespace MainGame.Actor
 
         private TadaLib.TadaRigidbody2D trb;
 
-        //private BasePlayerInput input;
+        private BasePlayerInput input;
+
+        private int appealGage = 50;
+
+        [SerializeField]
+        private int needAppealGage = 10;
 
         [SerializeField]
         private SimpleRotater rotater;
@@ -58,7 +63,7 @@ namespace MainGame.Actor
             stateMachine.SetInitialState((int)eState.Fall);
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
-            //input = GetComponent<BasePlayerInput>();
+            input = GetComponent<BasePlayerInput>();
         }
 
         private void Update()
@@ -67,6 +72,17 @@ namespace MainGame.Actor
             stateMachine.Proc();
             string s = "state : " + stateMachine.ToString() + "\n" + trb.LeftCollide.ToString() + " " + trb.RightCollide.ToString();
             KoitanDebug.DisplayBox(s, this);
+        }
+
+        // 無敵状態になれるか
+        private bool MutekiRequest()
+        {
+            return appealGage >= needAppealGage;
+        }
+
+        private void UseAppealGage()
+        {
+            appealGage -= needAppealGage;
         }
     }
 } // namespace Main.Actor

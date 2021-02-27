@@ -105,7 +105,7 @@ namespace TadaLib
             }
 
             // ちょっと上方向から飛ばす
-            Vector2 originOffset = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, halfSize.y * 0.15f);
+            Vector2 originOffset = Vector2.zero;// Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, halfSize.y * 0.15f);
             // 通常のレイキャストでやる
             // 左方向
             {
