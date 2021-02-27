@@ -46,7 +46,7 @@ namespace TadaInput
                 else break;
             }
 
-            if (Input.GetMouseButton((int)ButtonCode.MouseLeft)) jumpBuff.Enqueue(Time.unscaledTime);
+            if (Input.GetMouseButtonDown((int)ButtonCode.MouseLeft)) jumpBuff.Enqueue(Time.unscaledTime);
         }
 
         public override void Reset()
@@ -63,11 +63,16 @@ namespace TadaInput
         public override bool GetButtonDown(ButtonCode code, bool usePreceding = false)
         {
             if (!ActionEnabled) return false;
-            if (usePreceding && code == ButtonCode.MouseLeft)
+            if (code == ButtonCode.MouseLeft)
             {
                 bool res = (jumpBuff.Count >= 1);
-                if (res) jumpBuff.Dequeue();
-                return res;
+                if (res) 
+                {
+                    jumpBuff.Dequeue();
+                    if (usePreceding) return true;
+                    else return Input.GetMouseButtonDown((int)code);
+                }
+                return false;
             }
 
             return Input.GetMouseButtonDown((int)code);

@@ -30,6 +30,13 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
+                // 無敵モード
+                if (Parent.MutekiRequest() && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseRight))
+                {
+                    ChangeState((int)eState.Super);
+                    return;
+                }
+
                 // 自身の左右が壁に当たったら死亡
                 if (Parent.trb.RightCollide || Parent.trb.LeftCollide)
                 {
@@ -45,7 +52,7 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプ
-                if (Input.GetMouseButtonDown(0))
+                if (Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, true))
                 {
                     ChangeState((int)eState.Jump);
                     return;
