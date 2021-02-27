@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TadaLib;
 using KoitanLib;
+using TadaInput;
 
 namespace MainGame.Actor
 {
@@ -36,6 +37,9 @@ namespace MainGame.Actor
         #endregion
 
         private TadaLib.TadaRigidbody2D trb;
+
+        //private BasePlayerInput input;
+
         [SerializeField]
         private SimpleRotater rotater;
 
@@ -54,6 +58,7 @@ namespace MainGame.Actor
             stateMachine.SetInitialState((int)eState.Fall);
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
+            //input = GetComponent<BasePlayerInput>();
         }
 
         private void Update()
