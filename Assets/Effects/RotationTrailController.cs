@@ -49,4 +49,9 @@ public class RotationTrailController : MonoBehaviour
         }
         Debug.DrawLine(target.position, center.position, Color.black);
     }
+
+    public void SetOmega(float _omega)
+    {
+        omega = _omega;
+    }
 }
