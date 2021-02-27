@@ -98,6 +98,7 @@ namespace MainGame.Actor
         private void UseAppealGauge()
         {
             appealGauge = Mathf.Max(appealGauge - needAppealGauge, 0);
+            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
 
         private void AddAppealGauge()
