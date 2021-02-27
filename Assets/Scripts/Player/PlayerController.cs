@@ -41,7 +41,7 @@ namespace MainGame.Actor
 
         private BasePlayerInput input;
 
-        private int appealGauge = 55;
+        private int appealGauge = 0;
 
         [SerializeField]
         private int needAppealGauge = 25;
