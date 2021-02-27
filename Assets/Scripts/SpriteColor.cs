@@ -53,4 +53,9 @@ public class SpriteColor : MonoBehaviour
         //renderer.color = Color.HSVToRGB(h, Mathf.Min(1.0f, s - flashPower), v);
         moyou.StartGaming();
     }
+
+    public void Hide()
+    {
+        renderer.enabled = false;
+    }
 }
