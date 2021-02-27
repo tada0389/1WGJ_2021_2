@@ -15,6 +15,8 @@ namespace TadaLib
         // 衝突検知するオブジェクトレイヤー
         [SerializeField]
         private int collideMask = 1 << 8;
+        [SerializeField]
+        private int collideMaskDown = 1 << 8 | 1 << 9;
 
         // 左でぶつかっている
         public bool LeftCollide { private set; get; }
@@ -78,9 +80,9 @@ namespace TadaLib
                 Vector2 originLeft = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(-halfSize.x * 0.8f, 0f));
                 Vector2 originRight = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x * 0.8f, 0f));
                 Vector2 dir = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, -lengthY);
-                RaycastHit2D hitDownLeft = LinecastWithGizmos(originLeft, originLeft + dir, collideMask);
-                RaycastHit2D hitDownCenter = LinecastWithGizmos(origin, origin + dir, collideMask);
-                RaycastHit2D hitDownRight = LinecastWithGizmos(originRight, originRight + dir, collideMask);
+                RaycastHit2D hitDownLeft = LinecastWithGizmos(originLeft, originLeft + dir, collideMaskDown);
+                RaycastHit2D hitDownCenter = LinecastWithGizmos(origin, origin + dir, collideMaskDown);
+                RaycastHit2D hitDownRight = LinecastWithGizmos(originRight, originRight + dir, collideMaskDown);
 
                 // めり込んでいる分は上に持ち上げる
                 float length = halfSize.y; // 地面までの通常の距離
