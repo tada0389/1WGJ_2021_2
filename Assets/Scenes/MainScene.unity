@@ -802,14 +802,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a604a922c1b9ddd4a9616e7ad372de28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 60
-  rotateSpeedAccel: 1
+  rotateSpeed: 50
+  rotateSpeedAccel: 0.6
   spawnIntervalDegree: 39
   objectPrefabs:
   - {fileID: 1557990690897126821, guid: 1ed0fda40e3ee98459205685878ac500, type: 3}
   - {fileID: 9114282272187961510, guid: c6634f638dccf2c4181445f14af77da2, type: 3}
   - {fileID: -5608523060591311776, guid: be364cacfb54f73408863b320cd60b85, type: 3}
   - {fileID: 1116579720588216093, guid: 99363d2fa2c797b45a353b388ba0d3d0, type: 3}
+  - {fileID: 1582835853346917899, guid: fe6e7c72bb0179d408cf1498772c4b1a, type: 3}
+  - {fileID: 8365216078184025673, guid: c8a65ca100a397f41afb5c19d61879e5, type: 3}
   objects:
   - {fileID: 351302219}
   patterns:
@@ -817,6 +819,8 @@ MonoBehaviour:
   - indicies: 00000000
   - indicies: 03000000
   - indicies: 0000000001000000feffffff
+  - indicies: 04000000
+  - indicies: feffffff04000000feffffff
   - indicies: feffffff
   scoreText: {fileID: 1621005526}
   highScoreText: {fileID: 1933304805}
@@ -2140,7 +2144,7 @@ GameObject:
   - component: {fileID: 1671093592}
   - component: {fileID: 1671093594}
   - component: {fileID: 1671093593}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: donuts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
