@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudGenerator : MonoBehaviour
+public class BackGroundObjectGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
 
     [SerializeField]
-    GameObject cloudOrigin;
+    GameObject objOrigin;
 
     [SerializeField]
     float minHeight;
@@ -36,7 +36,7 @@ public class CloudGenerator : MonoBehaviour
         {
             if (Random.value < generationRate)
             {
-                var cloud = Instantiate(cloudOrigin);
+                var cloud = Instantiate(objOrigin);
                 cloud.transform.parent = transform;
                 cloud.transform.position
                     = Vector3.right * Random.Range(minHeight, maxHeight);
