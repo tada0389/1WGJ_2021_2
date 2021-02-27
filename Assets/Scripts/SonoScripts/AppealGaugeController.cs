@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class AppealGaugeController : MonoBehaviour
 {
     [SerializeField]
-    private RectTransform useGaugeRT;
+    private Image useGaugeImage;
 
     [SerializeField]
     private Image[] gaugeImages;
@@ -36,7 +37,7 @@ public class AppealGaugeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        useGaugeRT.GetComponent<GamingImageComponent>().StartGaming();
+        useGaugeImage.GetComponent<GamingImageComponent>().StartGaming();
     }
 
     // Update is called once per frame
@@ -48,7 +49,12 @@ public class AppealGaugeController : MonoBehaviour
     public void SetGauge(int val,int maxVal, int needVal)
     {
         int currentCount = val / needVal;
-        currentCountText.text = currentCount.ToString();
+        if (currentCountText.text != currentCount.ToString())
+        {
+            currentCountText.text = currentCount.ToString();
+            currentCountText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.2f, 1, 0);
+        }
+
         if (currentCount < gaugeImages.Length)
         {
             currentRingImage.color = gaugeImages[currentCount].color;
@@ -71,17 +77,36 @@ public class AppealGaugeController : MonoBehaviour
             currentCountText.color = satisfyTextColor;
             currentBackGroundImage.color = satisfyBackGroundColor;
 
-            useGaugeRT.gameObject.SetActive(true);
+            bool prevActive = useGaugeImage.gameObject.activeSelf;
+            useGaugeImage.gameObject.SetActive(true);
             float angle = 180 - 360 * ((float)val / maxVal - 0.25f);
-            useGaugeRT.localEulerAngles = Vector3.forward * angle;
+            if (prevActive)
+            {
+                useGaugeImage.rectTransform.DORotate(Vector3.forward * angle, 0.5f);
+                useGaugeImage.rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.2f, 1, 0);
+            }
+            else
+            {
+                useGaugeImage.fillAmount = 0.25f;
+                useGaugeImage.rectTransform.localEulerAngles = Vector3.forward * angle;
+                useGaugeImage.rectTransform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 0);
+            }
         }
         else
         {
             currentCountText.color = notSatisfyTextColor;
             currentBackGroundImage.color = notSatisfyBackGroundColor;
-            useGaugeRT.gameObject.SetActive(false);
+            bool prevUseGauge = useGaugeImage.gameObject.activeSelf;
+            if (prevUseGauge)
+            {
+                useGaugeImage.DOFillAmount(0, 0.5f).OnComplete(()=>
+                {
+                    useGaugeImage.gameObject.SetActive(false);
+                });
+            }
             gaugeImages[0].gameObject.SetActive(true);
-            gaugeImages[0].fillAmount = (float)val / maxVal;
+            gaugeImages[0].DOFillAmount((float)val / maxVal, 0.5f);
+            gaugeImages[0].rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.2f, 1, 0);
         }
     }
 }
