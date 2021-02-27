@@ -36,6 +36,11 @@ namespace MainGame.Actor
             [SerializeField]
             private AudioClip jumpSE;
 
+            [SerializeField]
+            private AppealChanceCircle circle;
+
+            private bool doneAppeal;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             { 
@@ -48,12 +53,14 @@ namespace MainGame.Actor
                 Parent.rotater.StopRotate();
 
                 Parent.audioSource.PlayOneShot(jumpSE);
+
+                doneAppeal = false;
             }
 
             // ステートが終了したときに呼ばれるメソッド
             public override void OnEnd()
             {
-
+                circle.Hide();
             }
 
             // 毎フレーム呼ばれる関数
@@ -97,13 +104,25 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプボタン＋頂点付近ならアピール
-                if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
+                if (!doneAppeal)
                 {
-                    Parent.AddAppealGauge();
-                    appearlEff.gameObject.SetActive(true);
-                    appearlEff.Play();
-                    Parent.color.Flash(); // 本体を光らせる
+                    if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
+                    {
+                        Parent.AddAppealGauge();
+                        appearlEff.gameObject.SetActive(true);
+                        appearlEff.Play();
+                        Parent.color.Flash(); // 本体を光らせる
+                        doneAppeal = true;
+                    }
+
+                    // アピールチャンスの円を書く
+                    if (Parent.Velocity.y >= 0.0f)
+                    {
+                        circle.Show(Mathf.Abs(Parent.Velocity.y));
+                    }
+                    else circle.Hide();
                 }
+                else circle.Hide();
             }
         }
     }
