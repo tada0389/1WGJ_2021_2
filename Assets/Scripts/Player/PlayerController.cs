@@ -41,10 +41,10 @@ namespace MainGame.Actor
 
         private BasePlayerInput input;
 
-        private int appealGauge = 50;
+        private int appealGauge = 55;
 
         [SerializeField]
-        private int needAppealGauge = 10;
+        private int needAppealGauge = 25;
 
         [SerializeField]
         private int addAppealGaugeAmount = 5;
@@ -56,11 +56,7 @@ namespace MainGame.Actor
         private SimpleRotater rotater;
 
         [SerializeField]
-        private GameObject appealUI;
-
-        private Image appealGaugeUI;
-        private Color gaugeSatisfyColor;
-        private Color gaugeNotSatisfyColor;
+        private AppealGaugeController appealGaugeController;
 
         private AudioSource audioSource;
 
@@ -85,11 +81,7 @@ namespace MainGame.Actor
             audioSource = GetComponent<AudioSource>();
             color = GetComponent<SpriteColor>();
 
-            gaugeSatisfyColor = appealUI.transform.Find("WholeGuide").GetComponent<Image>().color;
-            gaugeNotSatisfyColor = appealUI.transform.Find("NeedGuide").GetComponent<Image>().color;
-            appealUI.transform.Find("NeedGuide").GetComponent<Image>().fillAmount = (float)(needAppealGauge - 1) / maxAppealGauge;
-            appealGaugeUI = appealUI.transform.Find("Gauge").GetComponent<Image>();
-            UpdateAppealGaugeUI();
+            appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 
         private void Update()
@@ -109,19 +101,13 @@ namespace MainGame.Actor
         private void UseAppealGauge()
         {
             appealGauge = Mathf.Max(appealGauge - needAppealGauge, 0);
-            UpdateAppealGaugeUI();
+            appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 
         private void AddAppealGauge()
         {
             appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
-            UpdateAppealGaugeUI();
-        }
-
-        private void UpdateAppealGaugeUI()
-        {
-            appealGaugeUI.fillAmount = (float)appealGauge / maxAppealGauge;
-            appealGaugeUI.color = appealGauge >= needAppealGauge ? gaugeSatisfyColor : gaugeNotSatisfyColor;
+            appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 
         //public void AudioPlay(AudioClip clip)
