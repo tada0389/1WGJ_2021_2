@@ -1412,6 +1412,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4946656239515778248, guid: cd7ac3906151e464292c214962678e4f,
+        type: 3}
+      propertyPath: m_Name
+      value: Day
+      objectReference: {fileID: 0}
     - target: {fileID: 4946656240534980139, guid: cd7ac3906151e464292c214962678e4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1470,7 +1475,7 @@ PrefabInstance:
     - target: {fileID: 4946656240534980142, guid: cd7ac3906151e464292c214962678e4f,
         type: 3}
       propertyPath: m_Name
-      value: BackGround (1)
+      value: BackGround
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7ac3906151e464292c214962678e4f, type: 3}
@@ -2514,6 +2519,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Appeal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380849336897110542, guid: 3ad075ed2cf152e4884bd1c65c1f6107,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380849336897110542, guid: 3ad075ed2cf152e4884bd1c65c1f6107,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380849337889177135, guid: 3ad075ed2cf152e4884bd1c65c1f6107,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380849337889177135, guid: 3ad075ed2cf152e4884bd1c65c1f6107,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ad075ed2cf152e4884bd1c65c1f6107, type: 3}
