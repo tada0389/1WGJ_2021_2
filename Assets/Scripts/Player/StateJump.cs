@@ -38,10 +38,9 @@ namespace MainGame.Actor
 
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
-            {
-                Parent.Velocity = new Vector2(1.0f, 0.0f);
+            { 
                 Parent.Accel = this.Accel;
-                Parent.Velocity = new Vector2(Parent.Velocity.x, jumpPower);
+                Parent.Velocity = new Vector2(1.0f, jumpPower);
 
                 doubleJumped = false;
 
@@ -65,6 +64,12 @@ namespace MainGame.Actor
                 {
                     ChangeState((int)eState.Super);
                     return;
+                }
+
+                // 上方向に当たっていたら速度をゼロに
+                if (Parent.trb.TopCollide)
+                {
+                    Parent.Velocity = new Vector2(Parent.Velocity.x, -0.05f);
                 }
 
                 // 自身の左右が壁に当たったら死亡
