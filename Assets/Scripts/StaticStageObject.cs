@@ -21,9 +21,12 @@ public class StaticStageObject : BaseStageObject
             var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
             foreach(var col in cols)
             {
-                //ふっとんだとき回転させる
-                col.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
                 col.enabled = false;
+            }
+            foreach(Transform child in transform)
+            {
+                //ふっとんだとき回転させる(Zakky)
+                child.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
             }
         }
     }
