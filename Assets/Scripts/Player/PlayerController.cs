@@ -56,10 +56,15 @@ namespace MainGame.Actor
         private SimpleRotater rotater;
 
         [SerializeField]
-        private Image appealGaugeGraph;
+        private GameObject appealUI;
+
+        private Image appealGaugeUI;
+        private Color gaugeSatisfyColor;
+        private Color gaugeNotSatisfyColor;
 
         private AudioSource audioSource;
 
+        [System.Obsolete]
         private void Start()
         {
             // ステートマシンのメモリ確保 自分自身を渡す
@@ -78,7 +83,11 @@ namespace MainGame.Actor
             input = GetComponent<BasePlayerInput>();
             audioSource = GetComponent<AudioSource>();
 
-            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
+            gaugeSatisfyColor = appealUI.transform.Find("WholeGuide").GetComponent<Image>().color;
+            gaugeNotSatisfyColor = appealUI.transform.Find("NeedGuide").GetComponent<Image>().color;
+            appealUI.transform.Find("NeedGuide").GetComponent<Image>().fillAmount = (float)needAppealGauge / maxAppealGauge;
+            appealGaugeUI = appealUI.transform.Find("Gauge").GetComponent<Image>();
+            UpdateAppealGaugeUI();
         }
 
         private void Update()
@@ -98,13 +107,19 @@ namespace MainGame.Actor
         private void UseAppealGauge()
         {
             appealGauge = Mathf.Max(appealGauge - needAppealGauge, 0);
-            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
+            UpdateAppealGaugeUI();
         }
 
         private void AddAppealGauge()
         {
             appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
-            appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
+            UpdateAppealGaugeUI();
+        }
+
+        private void UpdateAppealGaugeUI()
+        {
+            appealGaugeUI.fillAmount = (float)appealGauge / maxAppealGauge;
+            appealGaugeUI.color = appealGauge >= needAppealGauge ? gaugeSatisfyColor : gaugeNotSatisfyColor;
         }
 
         //public void AudioPlay(AudioClip clip)
