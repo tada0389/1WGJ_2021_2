@@ -12,6 +12,17 @@ public class StaticStageObject : BaseStageObject
     [SerializeField]
     private ParticleSystem breakEffPrefab;
 
+    [SerializeField]
+    private AudioClip DestroySE;
+
+    private AudioSource audioSource;
+
+    //Zakky
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "muteki")
@@ -37,5 +48,7 @@ public class StaticStageObject : BaseStageObject
         Instantiate(breakEffPrefab, transform.GetChild(0).position, Quaternion.identity);
         // y軸方向に＋
         Velocity = new Vector2(-0.5f, 0.5f);
+
+        audioSource.PlayOneShot(DestroySE);
     }
 }

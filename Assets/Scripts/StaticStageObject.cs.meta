@@ -3,7 +3,9 @@ guid: 5b34de699c1ff3e4391733ec80a18928
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - breakEffPrefab: {instanceID: 0}
+  - DestroySE: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
