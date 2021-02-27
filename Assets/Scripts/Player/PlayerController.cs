@@ -60,7 +60,7 @@ namespace MainGame.Actor
         {
             // 状態を更新する
             stateMachine.Proc();
-            string s = "state : " + stateMachine.ToString();
+            string s = "state : " + stateMachine.ToString() + "\n" + trb.LeftCollide.ToString() + " " + trb.RightCollide.ToString();
             KoitanDebug.DisplayBox(s, this);
         }
     }
