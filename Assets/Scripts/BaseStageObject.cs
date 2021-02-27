@@ -25,7 +25,7 @@ public class BaseStageObject : MonoBehaviour
     [SerializeField]
     private Vector2 maxAbsSpeed = new Vector2(10.0f, 0.5f);
 
-    public bool Destoryed { private set; get; }
+    public bool Destoryed { protected set; get; }
 
     public void Init(Vector2 pos, Vector2 center)
     {
