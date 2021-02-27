@@ -28,6 +28,10 @@ namespace MainGame.Actor
 
             private bool doubleJumped = false;
 
+            // アピールエフェクト
+            [SerializeField]
+            private ParticleSystem appearlEff;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -71,8 +75,10 @@ namespace MainGame.Actor
                 }
 
                 // ジャンプボタン＋頂点付近ならアピール
-                if(Input.GetMouseButtonDown(0) && Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed)
+                if (Input.GetMouseButtonDown(0) && Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed)
                 {
+                    appearlEff.gameObject.SetActive(true);
+                    appearlEff.Play();
                     Debug.Log("appeal");
                 }
             }

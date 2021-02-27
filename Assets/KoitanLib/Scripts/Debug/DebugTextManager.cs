@@ -19,11 +19,6 @@ namespace KoitanLib
         private Dictionary<int, TextBox> boxDic = new Dictionary<int, TextBox>();
         TextBox a = new TextBox();
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(debugCanvas);
-        }
-
         private void LateUpdate()
         {
             //標準

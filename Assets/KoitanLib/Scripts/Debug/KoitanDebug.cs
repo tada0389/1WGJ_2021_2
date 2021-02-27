@@ -9,6 +9,8 @@ namespace KoitanLib
     {
         private static KoitanDebug instance;
         [SerializeField]
+        private GameObject debugCanvas;
+        [SerializeField]
         private DebugTextManager dtm;
         // Start is called before the first frame update
         private void Awake()
@@ -17,6 +19,7 @@ namespace KoitanLib
             {
                 instance = this;
                 DontDestroyOnLoad(this);
+                DontDestroyOnLoad(debugCanvas);
                 DontDestroyOnLoad(dtm);
             }
             else
@@ -28,7 +31,10 @@ namespace KoitanLib
         // Update is called once per frame
         void Update()
         {
-
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                debugCanvas.SetActive(!debugCanvas.activeSelf);
+            }
         }
 
         [Conditional("KOITAN_DEBUG")]
