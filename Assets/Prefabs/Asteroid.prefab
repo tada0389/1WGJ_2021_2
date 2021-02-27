@@ -390,6 +390,7 @@ MonoBehaviour:
   - {fileID: 1116579720588216093, guid: 99363d2fa2c797b45a353b388ba0d3d0, type: 3}
   - {fileID: 1582835853346917899, guid: fe6e7c72bb0179d408cf1498772c4b1a, type: 3}
   - {fileID: 8365216078184025673, guid: c8a65ca100a397f41afb5c19d61879e5, type: 3}
+  - {fileID: 3599767270938762512, guid: 0a0281011a9323d4dab7e2b5b087d783, type: 3}
   objects:
   - {fileID: 0}
   patterns:
@@ -399,9 +400,13 @@ MonoBehaviour:
   - indicies: 0000000001000000feffffff
   - indicies: 04000000
   - indicies: feffffff05000000feffffff
+  - indicies: 06000000feffffff
+  - indicies: 000000000100000006000000feffffff
+  - indicies: feffffff0500000006000000feffffff
   - indicies: feffffff
   scoreText: {fileID: 0}
   highScoreText: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!1 &626798089891307665
 GameObject:
   m_ObjectHideFlags: 0
