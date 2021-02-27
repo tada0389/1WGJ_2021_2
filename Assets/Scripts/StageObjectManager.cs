@@ -64,8 +64,12 @@ public class StageObjectManager : MonoBehaviour
     private float score = 0.0f;
     private static float highScore = 0.0f;
 
+    public static float staticRotateSpeed;
+
     private void Start()
     {
+        staticRotateSpeed = rotateSpeed;
+
         foreach(var obj in objects)
         {
             obj.Init(new Vector2(120f, 7.0f), transform.position);
@@ -78,7 +82,8 @@ public class StageObjectManager : MonoBehaviour
     private void Update()
     {
         rotateSpeed += rotateSpeedAccel * Time.deltaTime;
-        if(trail != null) trail.SetOmega(rotateSpeed);
+        staticRotateSpeed = rotateSpeed;
+        if (trail != null) trail.SetOmega(rotateSpeed);
 
         // オブジェクトを生成
         rotateSum += rotateSpeed * Time.deltaTime;
