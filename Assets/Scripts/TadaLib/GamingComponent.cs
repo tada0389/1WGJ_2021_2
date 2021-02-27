@@ -14,6 +14,7 @@ namespace TadaLib
 
         private float hue_;
 
+        [SerializeField]
         private bool isGaming = false;
 
         // Start is called before the first frame update
@@ -28,7 +29,7 @@ namespace TadaLib
         {
             if (!isGaming) return;
 
-            renderer_.color = Color.HSVToRGB(hue_, 1.0f, 1.0f);
+            renderer_.color = Color.HSVToRGB(hue_, 0.3f, 1.0f);
             hue_ += color_speed_ * Time.deltaTime;
             while (hue_ >= 1.0f) hue_ -= 1.0f;
         }
