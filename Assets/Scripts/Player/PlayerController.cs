@@ -64,7 +64,8 @@ namespace MainGame.Actor
 
         private AudioSource audioSource;
 
-        [System.Obsolete]
+        private SpriteColor color;
+
         private void Start()
         {
             // ステートマシンのメモリ確保 自分自身を渡す
@@ -82,6 +83,7 @@ namespace MainGame.Actor
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
             input = GetComponent<BasePlayerInput>();
             audioSource = GetComponent<AudioSource>();
+            color = GetComponent<SpriteColor>();
 
             gaugeSatisfyColor = appealUI.transform.Find("WholeGuide").GetComponent<Image>().color;
             gaugeNotSatisfyColor = appealUI.transform.Find("NeedGuide").GetComponent<Image>().color;
