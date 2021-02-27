@@ -12,6 +12,9 @@ public class StaticStageObject : BaseStageObject
     [SerializeField]
     private ParticleSystem breakEffPrefab;
 
+    [SerializeField]
+    private bool killObject = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "muteki")
@@ -27,6 +30,16 @@ public class StaticStageObject : BaseStageObject
             {
                 //ふっとんだとき回転させる(Zakky)
                 child.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
+            }
+        }
+
+        if (killObject)
+        {
+            // プレイヤーなら倒す
+            MainGame.Actor.PlayerController player = collision.GetComponent<MainGame.Actor.PlayerController>();
+            if(player != null)
+            {
+                player.DoKill();
             }
         }
     }

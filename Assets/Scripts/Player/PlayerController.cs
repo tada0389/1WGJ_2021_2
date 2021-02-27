@@ -110,6 +110,13 @@ namespace MainGame.Actor
             appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 
+        // 殺す 強制的に死亡へ
+        public void DoKill()
+        {
+            if(stateMachine.CurrentStateId != (int)eState.Dead)
+                stateMachine.ChangeState((int)eState.Dead);
+        }
+
         //public void AudioPlay(AudioClip clip)
         //{
         //    audioSource.PlayOneShot(clip);
