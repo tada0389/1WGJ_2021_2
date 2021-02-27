@@ -17,7 +17,11 @@ public class StaticStageObject : BaseStageObject
         {
             // 吹き飛ぶ
             BlowedOff();
-            transform.GetChild(0).GetComponent<Collider2D>().enabled = false; // 無理やりだけど
+            var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
+            foreach(var col in cols)
+            {
+                col.enabled = false;
+            }
         }
     }
 

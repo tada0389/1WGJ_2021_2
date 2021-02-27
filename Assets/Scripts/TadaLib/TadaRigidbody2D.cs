@@ -101,9 +101,34 @@ namespace TadaLib
                     transform.position += (Vector3)add;
                 }
             }
-            // 下方向に接していたなかったら上方向もやる
+            // 上方向
             {
-                // やっぱやらない 今回は必要なさそう
+                // 左端，中央，右端の順に確かめる
+                Vector2 originLeft = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(-halfSize.x * 0.8f, 0f));
+                Vector2 originRight = origin + (Vector2)(Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(halfSize.x * 0.8f, 0f));
+                Vector2 dir = Quaternion.Euler(0.0f, 0.0f, transform.eulerAngles.z) * new Vector2(0.0f, lengthY);
+                RaycastHit2D hitUpLeft = LinecastWithGizmos(originLeft, originLeft + dir, collideMask);
+                RaycastHit2D hitUpCenter = LinecastWithGizmos(origin, origin + dir, collideMask);
+                RaycastHit2D hitUpRight = LinecastWithGizmos(originRight, originRight + dir, collideMask);
+
+                // めり込んでいる分は上に持ち上げる
+                float length = halfSize.y; // 地面までの通常の距離
+
+                float downLength = -1.0f;
+                if (hitUpLeft) downLength = Mathf.Max(downLength, length - hitUpLeft.distance);
+                if (hitUpCenter) downLength = Mathf.Max(downLength, length - hitUpCenter.distance);
+                if (hitUpRight) downLength = Mathf.Max(downLength, length - hitUpRight.distance);
+
+                // 盛り上がった
+                if (downLength > -0.1f)
+                {
+                    // 上昇値を控えめにする
+                    downLength = Mathf.Min(downLength, halfSize.y * 0.2f);
+                    TopCollide = true;
+                    float rotZ = transform.eulerAngles.z * Mathf.Deg2Rad + Mathf.PI / 2.0f; // 要調整
+                    Vector2 add = new Vector2(Mathf.Cos(rotZ), Mathf.Sin(rotZ)) * -downLength;
+                    transform.position += (Vector3)add;
+                }
             }
 
             // ちょっと上方向から飛ばす
