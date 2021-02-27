@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82df4c6f23a4d09458add9e5a50d9c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugCanvas: {fileID: 2113230557}
   dtm: {fileID: 1072434151}
 --- !u!4 &154579036
 Transform:
