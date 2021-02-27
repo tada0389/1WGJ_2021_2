@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8364456170776636684}
   - component: {fileID: 8364456170776636685}
   - component: {fileID: 211115824}
+  - component: {fileID: 5636383243448028823}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -286,6 +287,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5636383243448028823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364456170776636674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a411fbec8d4a82c458238d2ee4ee7db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashPower: 1
+  flashDuration: 0.5
+  moyou: {fileID: 9155337813457590592}
 --- !u!1 &8364456171611795687
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8364456171723063004}
   - component: {fileID: 8364456171723063007}
+  - component: {fileID: 9155337813457590592}
   m_Layer: 0
   m_Name: circle
   m_TagString: Untagged
@@ -412,6 +429,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9155337813457590592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364456171723063005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9b13a36fefc024a95ead404088082f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color_speed_: 2
 --- !u!50 &1273166167
 Rigidbody2D:
   serializedVersion: 4

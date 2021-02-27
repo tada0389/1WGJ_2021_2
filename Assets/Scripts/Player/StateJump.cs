@@ -97,6 +97,7 @@ namespace MainGame.Actor
                     Parent.AddAppealGauge();
                     appearlEff.gameObject.SetActive(true);
                     appearlEff.Play();
+                    Parent.color.Flash(); // 本体を光らせる
                 }
             }
         }

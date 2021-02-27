@@ -60,6 +60,8 @@ namespace MainGame.Actor
 
         private AudioSource audioSource;
 
+        private SpriteColor color;
+
         private void Start()
         {
             // ステートマシンのメモリ確保 自分自身を渡す
@@ -77,6 +79,7 @@ namespace MainGame.Actor
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
             input = GetComponent<BasePlayerInput>();
             audioSource = GetComponent<AudioSource>();
+            color = GetComponent<SpriteColor>();
 
             appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
