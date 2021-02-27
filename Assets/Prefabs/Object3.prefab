@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843861725316348705}
   - component: {fileID: 1116579720588216093}
+  - component: {fileID: 2725461923515634732}
   m_Layer: 8
   m_Name: Object3
   m_TagString: Untagged
@@ -148,3 +149,26 @@ MonoBehaviour:
   maxAbsSpeed: {x: 10, y: 0.5}
   yMoveRange: {x: 0, y: 0.075}
   movePeriod: 1
+  breakEffPrefab: {fileID: 3063103095071385139, guid: f57358032eda81d4980bdbde8a9b7f24,
+    type: 3}
+--- !u!50 &2725461923515634732
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415947313724525050}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

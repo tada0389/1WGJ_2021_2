@@ -14,6 +14,9 @@ public class WaveStageObject : BaseStageObject
 
     private bool blowed = false;
 
+    [SerializeField]
+    private ParticleSystem breakEffPrefab;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,12 +33,14 @@ public class WaveStageObject : BaseStageObject
         {
             // 吹き飛ぶ
             BlowedOff();
+            transform.GetChild(0).GetComponent<Collider2D>().enabled = false; // 無理やりだけど
         }
     }
 
     // 吹き飛ばされる
     private void BlowedOff()
     {
+        Instantiate(breakEffPrefab, transform.GetChild(0).position, Quaternion.identity);
         blowed = true;
         // y軸方向に＋
         Velocity = new Vector2(-0.5f, 0.5f);
