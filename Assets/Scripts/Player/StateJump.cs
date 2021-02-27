@@ -32,6 +32,10 @@ namespace MainGame.Actor
             [SerializeField]
             private ParticleSystem appearlEff;
 
+            // ジャンプSE
+            [SerializeField]
+            private AudioClip jumpSE;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -43,6 +47,8 @@ namespace MainGame.Actor
 
                 // 回転
                 Parent.rotater.StopRotate();
+
+                Parent.audioSource.PlayOneShot(jumpSE);
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -88,6 +94,7 @@ namespace MainGame.Actor
                 // ジャンプボタン＋頂点付近ならアピール
                 if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
                 {
+                    Parent.AddAppealGauge();
                     appearlEff.gameObject.SetActive(true);
                     appearlEff.Play();
                 }

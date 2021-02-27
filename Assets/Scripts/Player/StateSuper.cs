@@ -21,11 +21,14 @@ namespace MainGame.Actor
             [SerializeField]
             private float mutekiDuration = 1.0f;
 
+            [SerializeField]
+            private ParticleSystem mutekiEff;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
                 // アピールゲージの消費
-                Parent.UseAppealGage();
+                Parent.UseAppealGauge();
 
                 // 右上に飛ばす
                 Parent.Velocity = power;
@@ -33,12 +36,15 @@ namespace MainGame.Actor
 
                 // 回転
                 Parent.rotater.StartRotate();
+
+                mutekiEff.gameObject.SetActive(true);
+                mutekiEff.Play();
             }
 
             // ステートが終了したときに呼ばれるメソッド
             public override void OnEnd()
             {
-
+                mutekiEff.gameObject.SetActive(false);
             }
 
             // 毎フレーム呼ばれる関数

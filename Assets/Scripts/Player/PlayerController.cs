@@ -4,6 +4,7 @@ using UnityEngine;
 using TadaLib;
 using KoitanLib;
 using TadaInput;
+using UnityEngine.UI;
 
 namespace MainGame.Actor
 {
@@ -40,14 +41,30 @@ namespace MainGame.Actor
 
         private BasePlayerInput input;
 
-        private int appealGage = 50;
+        private int appealGauge = 50;
 
         [SerializeField]
-        private int needAppealGage = 10;
+        private int needAppealGauge = 10;
+
+        [SerializeField]
+        private int addAppealGaugeAmount = 5;
+
+        [SerializeField]
+        private int maxAppealGauge = 100;
 
         [SerializeField]
         private SimpleRotater rotater;
 
+        [SerializeField]
+        private GameObject appealUI;
+
+        private Image appealGaugeUI;
+        private Color gaugeSatisfyColor;
+        private Color gaugeNotSatisfyColor;
+
+        private AudioSource audioSource;
+
+        [System.Obsolete]
         private void Start()
         {
             // ステートマシンのメモリ確保 自分自身を渡す
@@ -64,6 +81,13 @@ namespace MainGame.Actor
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
             input = GetComponent<BasePlayerInput>();
+            audioSource = GetComponent<AudioSource>();
+
+            gaugeSatisfyColor = appealUI.transform.Find("WholeGuide").GetComponent<Image>().color;
+            gaugeNotSatisfyColor = appealUI.transform.Find("NeedGuide").GetComponent<Image>().color;
+            appealUI.transform.Find("NeedGuide").GetComponent<Image>().fillAmount = (float)needAppealGauge / maxAppealGauge;
+            appealGaugeUI = appealUI.transform.Find("Gauge").GetComponent<Image>();
+            UpdateAppealGaugeUI();
         }
 
         private void Update()
@@ -77,12 +101,30 @@ namespace MainGame.Actor
         // 無敵状態になれるか
         private bool MutekiRequest()
         {
-            return appealGage >= needAppealGage;
+            return appealGauge >= needAppealGauge;
         }
 
-        private void UseAppealGage()
+        private void UseAppealGauge()
         {
-            appealGage -= needAppealGage;
+            appealGauge = Mathf.Max(appealGauge - needAppealGauge, 0);
+            UpdateAppealGaugeUI();
         }
+
+        private void AddAppealGauge()
+        {
+            appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
+            UpdateAppealGaugeUI();
+        }
+
+        private void UpdateAppealGaugeUI()
+        {
+            appealGaugeUI.fillAmount = (float)appealGauge / maxAppealGauge;
+            appealGaugeUI.color = appealGauge >= needAppealGauge ? gaugeSatisfyColor : gaugeNotSatisfyColor;
+        }
+
+        //public void AudioPlay(AudioClip clip)
+        //{
+        //    audioSource.PlayOneShot(clip);
+        //}
     }
 } // namespace Main.Actor

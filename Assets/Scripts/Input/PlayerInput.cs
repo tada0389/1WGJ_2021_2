@@ -28,6 +28,7 @@ namespace TadaInput
         private void Awake()
         {
             jumpBuff = new Queue<float>();
+            Reset();
         }
 
         private void Update()
@@ -70,7 +71,9 @@ namespace TadaInput
                 {
                     jumpBuff.Dequeue();
                     if (usePreceding) return true;
-                    else return Input.GetMouseButtonDown((int)code);
+                    else {
+                        return Input.GetMouseButtonDown((int)code);
+                    }
                 }
                 return false;
             }
