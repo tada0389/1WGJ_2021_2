@@ -29,6 +29,10 @@ public class StageObjectManager : MonoBehaviour
     [SerializeField]
     private float rotateSpeed = 45.0f;
 
+    // 1秒にどれくらい回転速度が上がるか 
+    [SerializeField]
+    private float rotateSpeedAccel = 1.0f;
+
     // オブジェクトを生成する間隔角度
     [SerializeField]
     private float spawnIntervalDegree = 30.0f;
@@ -70,6 +74,8 @@ public class StageObjectManager : MonoBehaviour
 
     private void Update()
     {
+        rotateSpeed += rotateSpeedAccel * Time.deltaTime;
+
         // オブジェクトを生成
         rotateSum += rotateSpeed * Time.deltaTime;
         score += rotateSpeed * Time.deltaTime;

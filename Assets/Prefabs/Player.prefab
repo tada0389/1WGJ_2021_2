@@ -133,11 +133,11 @@ MonoBehaviour:
     Accel: {x: 0, y: 0}
     deadEff: {fileID: 7056918062692096038}
     deadSE: {fileID: 8300000, guid: 2b705504eedbf9e428c94044c21e1eec, type: 3}
-  needAppealGauge: 10
-  addAppealGaugeAmount: 5
+  needAppealGauge: 25
+  addAppealGaugeAmount: 10
   maxAppealGauge: 100
   rotater: {fileID: 8364456171611795681}
-  appealGaugeGraph: {fileID: 0}
+  appealUI: {fileID: 0}
 --- !u!61 &8364456170776636687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a411fbec8d4a82c458238d2ee4ee7db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashPower: 1
+  flashPower: 0.3
   flashDuration: 0.5
   moyou: {fileID: 9155337813457590592}
 --- !u!1 &8364456171611795687
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color_speed_: 2
+  isGaming: 0
 --- !u!50 &1273166167
 Rigidbody2D:
   serializedVersion: 4

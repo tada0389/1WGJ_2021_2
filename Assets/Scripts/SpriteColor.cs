@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteColor : MonoBehaviour
@@ -20,10 +21,13 @@ public class SpriteColor : MonoBehaviour
     [SerializeField]
     private TadaLib.GamingComponent moyou;
 
+    private float defaultScale;
+
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
         initColor = renderer.color;
+        defaultScale = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class SpriteColor : MonoBehaviour
     // 光らせる
     public void Flash()
     {
+        transform.DOPunchScale(Vector3.one * (defaultScale * flashPower), flashDuration);
         isFlashing = true;
         flashStartTime = Time.time;
         //float h, s, v;
