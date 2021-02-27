@@ -30,6 +30,9 @@ namespace MainGame.Actor
                 // 右上に飛ばす
                 Parent.Velocity = power;
                 Parent.Accel = Accel;
+
+                // 回転
+                Parent.rotater.StartRotate();
             }
 
             // ステートが終了したときに呼ばれるメソッド

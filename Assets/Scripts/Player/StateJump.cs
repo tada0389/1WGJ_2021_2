@@ -40,6 +40,9 @@ namespace MainGame.Actor
                 Parent.Velocity = new Vector2(Parent.Velocity.x, jumpPower);
 
                 doubleJumped = false;
+
+                // 回転
+                Parent.rotater.StopRotate();
             }
 
             // ステートが終了したときに呼ばれるメソッド
