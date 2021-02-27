@@ -24,5 +24,10 @@ public class StarController : MonoBehaviour
             transform.localEulerAngles += Vector3.forward * 60;
             elapsedTime = 0;
         }
+
+        if (transform.position.y <= -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
