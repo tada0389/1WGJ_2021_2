@@ -87,7 +87,7 @@ namespace MainGame.Actor
 
             gaugeSatisfyColor = appealUI.transform.Find("WholeGuide").GetComponent<Image>().color;
             gaugeNotSatisfyColor = appealUI.transform.Find("NeedGuide").GetComponent<Image>().color;
-            appealUI.transform.Find("NeedGuide").GetComponent<Image>().fillAmount = (float)needAppealGauge / maxAppealGauge;
+            appealUI.transform.Find("NeedGuide").GetComponent<Image>().fillAmount = (float)(needAppealGauge - 1) / maxAppealGauge;
             appealGaugeUI = appealUI.transform.Find("Gauge").GetComponent<Image>();
             UpdateAppealGaugeUI();
         }
