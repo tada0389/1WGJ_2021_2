@@ -58,6 +58,8 @@ namespace MainGame.Actor
         [SerializeField]
         private Image appealGaugeGraph;
 
+        private AudioSource audioSource;
+
         private void Start()
         {
             // ステートマシンのメモリ確保 自分自身を渡す
@@ -74,6 +76,7 @@ namespace MainGame.Actor
 
             trb = GetComponent<TadaLib.TadaRigidbody2D>();
             input = GetComponent<BasePlayerInput>();
+            audioSource = GetComponent<AudioSource>();
 
             appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
@@ -102,5 +105,10 @@ namespace MainGame.Actor
             appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
             appealGaugeGraph.fillAmount = (float)appealGauge / maxAppealGauge;
         }
+
+        //public void AudioPlay(AudioClip clip)
+        //{
+        //    audioSource.PlayOneShot(clip);
+        //}
     }
 } // namespace Main.Actor
