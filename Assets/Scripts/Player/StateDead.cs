@@ -14,11 +14,19 @@ namespace MainGame.Actor
         [System.Serializable]
         private class StateDead : StateMachine<PlayerController>.StateBase
         {
+            [SerializeField]
+            private ParticleSystem deadEff;
+
+            private bool sceneLoaded = false;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
-                // 再リロード
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+                Parent.Velocity = Vector2.zero;
+                Parent.Accel = Vector2.zero;
+
+                deadEff.gameObject.SetActive(true);
+                deadEff.Play();
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -30,7 +38,12 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
-
+                if (Timer > 3.0f && !sceneLoaded)
+                {
+                    sceneLoaded = true;
+                    // 再リロード
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+                }
             }
         }
     }
