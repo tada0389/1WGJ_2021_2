@@ -22,7 +22,7 @@ public class WaveStageObject : BaseStageObject
     {
         if (blowed) return;
 
-        time += Time.deltaTime;
+        time += Time.deltaTime * StageObjectManager.staticRotateSpeed / 60.0f;
 
         Velocity = new Vector2(Velocity.x, Mathf.Sin(time * Mathf.PI / movePeriod) * yMoveRange.y);
     }
