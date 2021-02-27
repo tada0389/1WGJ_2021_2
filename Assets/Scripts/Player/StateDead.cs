@@ -19,6 +19,9 @@ namespace MainGame.Actor
 
             private bool sceneLoaded = false;
 
+            [SerializeField]
+            private AudioClip deadSE;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -27,6 +30,8 @@ namespace MainGame.Actor
 
                 deadEff.gameObject.SetActive(true);
                 deadEff.Play();
+
+                Parent.audioSource.PlayOneShot(deadSE);
 
                 // カメラ揺らす
                 CameraSpace.CameraShaker.Shake(0.2f, 0.5f);
