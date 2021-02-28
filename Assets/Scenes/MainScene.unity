@@ -5107,6 +5107,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273166168, guid: ec7014bcd23e8c54a9b1181ecb5dd71c, type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8364456170776636674, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: m_Name
@@ -5217,6 +5221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stateJump.appealGreadUpPosYThr
       value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8377989481809904976, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9120690143507254248, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
