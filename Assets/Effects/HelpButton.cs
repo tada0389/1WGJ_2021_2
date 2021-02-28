@@ -6,14 +6,17 @@ using DG.Tweening;
 public class HelpButton : MonoBehaviour
 {
     [SerializeField]
-    RectTransform helpRect;
+    private RectTransform helpRect;
 
-    bool isShowButton = true;
+    [SerializeField]
+    private RectTransform childTextRect;
+
+    private bool isShowButton = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        childTextRect.DOPunchScale(Vector3.one * 0.2f, 1f, 1, 1).SetLoops(-1);
     }
 
     // Update is called once per frame
