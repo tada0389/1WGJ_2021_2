@@ -12,6 +12,19 @@ public class StaticStageObject : BaseStageObject
     [SerializeField]
     private ParticleSystem breakEffPrefab;
 
+    [SerializeField]
+    private bool killObject = false;
+
+    [SerializeField]
+    private AudioClip DestroySE;
+
+    private AudioSource audioSource;
+
+    //Zakky
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "muteki")
@@ -29,6 +42,15 @@ public class StaticStageObject : BaseStageObject
                 child.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
             }
         }
+        else if (killObject)
+        {
+            // プレイヤーなら倒す
+            MainGame.Actor.PlayerController player = collision.GetComponent<MainGame.Actor.PlayerController>();
+            if(player != null)
+            {
+                player.DoKill();
+            }
+        }
     }
 
     // 吹き飛ばされる
@@ -37,5 +59,7 @@ public class StaticStageObject : BaseStageObject
         Instantiate(breakEffPrefab, transform.GetChild(0).position, Quaternion.identity);
         // y軸方向に＋
         Velocity = new Vector2(-0.5f, 0.5f);
+
+        audioSource.PlayOneShot(DestroySE);
     }
 }

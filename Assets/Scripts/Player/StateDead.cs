@@ -22,6 +22,9 @@ namespace MainGame.Actor
             [SerializeField]
             private AudioClip deadSE;
 
+            [SerializeField]
+            private List<GameObject> destoryObjects;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -37,6 +40,9 @@ namespace MainGame.Actor
                 CameraSpace.CameraShaker.Shake(0.2f, 0.5f);
 
                 Time.timeScale = 0.3f;
+
+                foreach (var obj in destoryObjects) obj.SetActive(false);
+                Parent.color.Hide();
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -48,7 +54,7 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
-                if (Timer > 0.5f && !sceneLoaded)
+                if (Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft) && !sceneLoaded)
                 {
                     sceneLoaded = true;
                     StageObjectManager.isDead = true;

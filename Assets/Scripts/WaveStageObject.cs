@@ -17,6 +17,17 @@ public class WaveStageObject : BaseStageObject
     [SerializeField]
     private ParticleSystem breakEffPrefab;
 
+    [SerializeField]
+    private AudioClip DestroySE;
+
+    private AudioSource audioSource;
+
+    //Zakky
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -44,5 +55,7 @@ public class WaveStageObject : BaseStageObject
         blowed = true;
         // y軸方向に＋
         Velocity = new Vector2(-0.5f, 0.5f);
+
+        audioSource.PlayOneShot(DestroySE);
     }
 }
