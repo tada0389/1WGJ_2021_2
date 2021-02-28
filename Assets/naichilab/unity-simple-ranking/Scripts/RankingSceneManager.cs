@@ -223,7 +223,9 @@ namespace naichilab
                     rankNode.NameText.text = r[COLUMN_NAME].ToString();
 
                     var s = _board.BuildScore(r[COLUMN_SCORE].ToString());
-                    rankNode.ScoreText.text = s != null ? s.TextForDisplay : "エラー";
+                    string score = "";
+                    if(s != null) score = s.Value.ToString("F2") + " m";
+                    rankNode.ScoreText.text = s != null ? score : "エラー";
 
 //                    Debug.Log(r[COLUMN_SCORE].ToString());
                 }
