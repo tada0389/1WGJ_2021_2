@@ -18,6 +18,9 @@ namespace MainGame.Actor
             [SerializeField]
             private float jumpPower = 0.15f;
 
+            [SerializeField]
+            private float fixedPosY = 7.2f;
+
             // どれくらいのy軸方向の速度ならアピールを許すか
             [SerializeField]
             private float appealEnableSpeed = 0.01f;
@@ -41,6 +44,10 @@ namespace MainGame.Actor
                 Parent.Accel = this.Accel;
                 Parent.Velocity = new Vector2(1.0f, jumpPower);
 
+                // 座標を固定する (飛んでいく方向がおかしくなるので)
+                Parent.SetPosition(new Vector2(Parent.Position.x, fixedPosY));
+
+                
                 // 回転
                 Parent.rotater.StopRotate();
 

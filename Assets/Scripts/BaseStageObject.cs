@@ -39,6 +39,11 @@ public class BaseStageObject : MonoBehaviour
         transform.eulerAngles = new Vector3(0f, 0f, Position.x - 90.0f);
     }
 
+    public void SetPosition(Vector2 pos)
+    {
+        Position = pos;
+    }
+
     // 座標を更新する centerは惑星の中心座標
     public void Proc(Vector2 center, float rotateSpeed)
     {
