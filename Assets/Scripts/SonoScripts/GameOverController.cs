@@ -14,6 +14,9 @@ public class GameOverController : MonoBehaviour
     GameObject rankingButton;
 
     [SerializeField]
+    GameObject tweetButton;
+
+    [SerializeField]
     GameObject wholeButton;
 
     void Start()
@@ -21,6 +24,7 @@ public class GameOverController : MonoBehaviour
         homeButton.transform.localScale = Vector3.zero;
         rankingButton.transform.localScale = Vector3.zero;
         wholeButton.transform.localScale = Vector3.zero;
+        tweetButton.transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -33,9 +37,11 @@ public class GameOverController : MonoBehaviour
     {
         homeButton.transform.DOScale(Vector3.one, 0.1f);
         rankingButton.transform.DOScale(Vector3.one, 0.1f);
+        tweetButton.transform.DOScale(Vector3.one, 0.1f);
         wholeButton.transform.localScale = Vector3.one;
         homeButton.transform.DORotate(Vector3.back * 10, 1f).SetEase(Ease.InOutCubic).SetLoops(-1, LoopType.Yoyo);
         rankingButton.transform.DORotate(Vector3.back * 10, 1f).SetEase(Ease.InOutCubic).SetLoops(-1, LoopType.Yoyo);
+        tweetButton.transform.DORotate(Vector3.back * 10, 1f).SetEase(Ease.InOutCubic).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnHomeClick()
