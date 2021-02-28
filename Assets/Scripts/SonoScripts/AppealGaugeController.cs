@@ -34,16 +34,25 @@ public class AppealGaugeController : MonoBehaviour
     [SerializeField]
     private Color notSatisfyTextColor;
 
+    private Color currentGaugeColor;
+    private bool isGamingFinish;
+
     // Start is called before the first frame update
     void Start()
     {
-        useGaugeImage.GetComponent<GamingImageComponent>().StartGaming();
+        GamingImageComponent gaming = useGaugeImage.GetComponent<GamingImageComponent>();
+        gaming.StartGaming();
+        currentGaugeColor = gaugeImages[0].color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (StageObjectManager.isDead && !isGamingFinish)
+        {
+            isGamingFinish = true;
+            useGaugeImage.gameObject.SetActive(false);
+        }
     }
 
     public void SetGauge(int val,int maxVal, int needVal)
@@ -55,10 +64,6 @@ public class AppealGaugeController : MonoBehaviour
             currentCountText.rectTransform.DOPunchScale(Vector3.one * 0.3f, 0.2f, 1, 0);
         }
 
-        if (currentCount < gaugeImages.Length)
-        {
-            currentRingImage.color = gaugeImages[currentCount].color;
-        }
         for (int i = 0; i < gaugeImages.Length; i++)
         {
             if (i < currentCount)
@@ -70,6 +75,18 @@ public class AppealGaugeController : MonoBehaviour
             {
                 gaugeImages[i].gameObject.SetActive(false);
             }
+        }
+        if (currentCount < gaugeImages.Length)
+        {
+            currentGaugeColor = gaugeImages[currentCount].color;
+            currentRingImage.color = currentGaugeColor;
+            gaugeImages[currentCount].gameObject.SetActive(true);
+            if ((float)val % needVal / maxVal < gaugeImages[currentCount].fillAmount)
+            {
+                gaugeImages[currentCount].fillAmount = 0;
+            }
+            gaugeImages[currentCount].DOFillAmount((float)(val % needVal) / maxVal, 0.5f);
+            gaugeImages[currentCount].rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.2f, 1, 0);
         }
 
         if (val >= needVal)
@@ -104,9 +121,6 @@ public class AppealGaugeController : MonoBehaviour
                     useGaugeImage.gameObject.SetActive(false);
                 });
             }
-            gaugeImages[0].gameObject.SetActive(true);
-            gaugeImages[0].DOFillAmount((float)val / maxVal, 0.5f);
-            gaugeImages[0].rectTransform.DOPunchScale(Vector3.one * 0.1f, 0.2f, 1, 0);
         }
     }
 }
