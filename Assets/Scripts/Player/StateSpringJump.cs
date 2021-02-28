@@ -100,7 +100,7 @@ namespace MainGame.Actor
                 {
                     if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
                     {
-                        Parent.AddAppealGauge();
+                        Parent.AddAppealGauge(2);
                         appearlEff.gameObject.SetActive(true);
                         appearlEff.Play();
                         Parent.color.Flash(); // 本体を光らせる

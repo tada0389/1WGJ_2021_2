@@ -114,11 +114,11 @@ namespace MainGame.Actor
             appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 
-        private void AddAppealGauge()
+        private void AddAppealGauge(int rate = 1)
         {
             //ゲージの本数増えたらSE鳴らす(Zakky)
             {
-                int nextPowerNum = Mathf.Min((appealGauge + addAppealGaugeAmount) / needAppealGauge, maxAppealGauge / needAppealGauge);
+                int nextPowerNum = Mathf.Min((appealGauge + addAppealGaugeAmount * rate) / needAppealGauge, maxAppealGauge / needAppealGauge);
                 int nowPowerNum = appealGauge / needAppealGauge;
                 if (nextPowerNum > nowPowerNum)
                 {
@@ -126,7 +126,7 @@ namespace MainGame.Actor
                 }
             }
 
-            appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
+            appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount * rate, maxAppealGauge);
             appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
 

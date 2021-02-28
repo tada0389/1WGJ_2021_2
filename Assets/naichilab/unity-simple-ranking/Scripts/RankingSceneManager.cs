@@ -79,7 +79,8 @@ namespace naichilab
 
         IEnumerator GetHighScoreAndRankingBoard()
         {
-            scoreLabel.text = _lastScore.TextForDisplay;
+            //scoreLabel.text = _lastScore.TextForDisplay;
+            scoreLabel.text = _lastScore.Value.ToString("F2") + " m";
             captionLabel.text = string.Format("{0}ランキング", _board.BoardName);
 
             //ハイスコア取得

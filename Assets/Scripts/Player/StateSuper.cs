@@ -24,6 +24,9 @@ namespace MainGame.Actor
             [SerializeField]
             private ParticleSystem mutekiEff;
 
+            [SerializeField]
+            private ParticleSystem earthEffPrefab;
+
             // ダッシュSE
             [SerializeField]
             private AudioClip dashSE;
@@ -62,6 +65,9 @@ namespace MainGame.Actor
                 // 接地してたらwalkステートへ　ただ、一定時間は無視する(ジャンプできなくなるので)
                 if (Parent.trb.ButtomCollide && Timer >= 0.4f)
                 {
+                    // エフェクトも出す
+                    var obj = Instantiate(earthEffPrefab, Parent.transform.position - new Vector3(-0.05f, 0.0f), Quaternion.identity);
+
                     ChangeState((int)eState.Walk);
                     return;
                 }
