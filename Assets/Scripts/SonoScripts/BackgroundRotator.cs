@@ -7,6 +7,8 @@ public class BackGroundRotator : MonoBehaviour
     [SerializeField]
     private float rotateSpeed = 45.0f;
 
+    private bool isAnimationStop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,12 @@ public class BackGroundRotator : MonoBehaviour
     {
         if (StageObjectManager.isDead)
         {
+            if (!isAnimationStop)
+            {
+                isAnimationStop = true;
+                GetComponent<Animator>().enabled = false;
+                GetComponent<BackGroundObjectGenerator>().enabled = false;
+            }
             return;
         }
 
