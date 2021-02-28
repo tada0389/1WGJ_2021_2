@@ -26,7 +26,7 @@ public class GameOverController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartGameOver()
@@ -48,8 +48,9 @@ public class GameOverController : MonoBehaviour
     public void OnRankingClick()
     {
         // ランキング処理
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(PlayerPrefs.GetFloat("highscore", 0));
     }
-    
+
     public void OnWholeClick()
     {
         Time.timeScale = 1f;
