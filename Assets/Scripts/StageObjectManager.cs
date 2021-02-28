@@ -66,6 +66,10 @@ public class StageObjectManager : MonoBehaviour
 
     public static float staticRotateSpeed;
 
+    public static bool isTitle = false;
+
+    public static bool isDead = false;
+
     private void Start()
     {
         staticRotateSpeed = rotateSpeed;
@@ -81,9 +85,29 @@ public class StageObjectManager : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         rotateSpeed += rotateSpeedAccel * Time.deltaTime;
         staticRotateSpeed = rotateSpeed;
         if (trail != null) trail.SetOmega(rotateSpeed);
+
+        // 回転
+        transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + rotateSpeed * Time.deltaTime);
+
+        foreach (var obj in objects)
+        {
+            obj.Proc(transform.position, rotateSpeed * Time.deltaTime);
+            if (obj.Destoryed) Destroy(obj.gameObject);
+        }
+        objects.RemoveAll(p => p.Destoryed);
+
+        if (isTitle)
+        {
+            return;
+        }
 
         // オブジェクトを生成
         rotateSum += rotateSpeed * Time.deltaTime;
@@ -112,15 +136,10 @@ public class StageObjectManager : MonoBehaviour
                 objects.Add(obj);
             }
         }
+    }
 
-        // 回転
-        transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + rotateSpeed * Time.deltaTime);
-
-        foreach(var obj in objects)
-        {
-            obj.Proc(transform.position, rotateSpeed * Time.deltaTime);
-            if (obj.Destoryed) Destroy(obj.gameObject);
-        }
-        objects.RemoveAll(p => p.Destoryed);
+    public void OnTitleClicked()
+    {
+        isTitle = false;
     }
 }

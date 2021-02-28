@@ -35,6 +35,8 @@ namespace MainGame.Actor
 
                 // カメラ揺らす
                 CameraSpace.CameraShaker.Shake(0.2f, 0.5f);
+
+                Time.timeScale = 0.3f;
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -46,9 +48,10 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
-                if (Timer > 3.0f && !sceneLoaded)
+                if (Timer > 0.5f && !sceneLoaded)
                 {
                     sceneLoaded = true;
+                    StageObjectManager.isDead = true;
                     // 再リロード
                     UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
                 }
