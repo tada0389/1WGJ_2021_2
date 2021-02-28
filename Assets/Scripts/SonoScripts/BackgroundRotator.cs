@@ -16,7 +16,12 @@ public class BackGroundRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StageObjectManager.isDead)
+        {
+            return;
+        }
 
+        rotateSpeed = StageObjectManager.staticRotateSpeed * 0.3f;
         transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + rotateSpeed * Time.deltaTime);
     }
 }

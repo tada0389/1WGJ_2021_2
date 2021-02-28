@@ -422,7 +422,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 600, y: 200}
+  m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440809208
 MonoBehaviour:
@@ -472,15 +472,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2155,7 +2155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e000f747eda53a0459a76820009e92ef, type: 2}
+      objectReference: {fileID: 9100000, guid: 394287b1e68f324449296e2ecb7595e3, type: 2}
     - target: {fileID: 4946656240534980139, guid: cd7ac3906151e464292c214962678e4f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3002,7 +3002,7 @@ MonoBehaviour:
   mainCamera: {fileID: 547661907}
   firstCameraPos: {x: -3, y: -1, z: -10}
   mainCameraPos: {x: 0, y: 0, z: -10}
-  firstCameraSize: 2
+  firstCameraSize: 3
   mainCameraSize: 5
 --- !u!1001 &2076349509
 PrefabInstance:

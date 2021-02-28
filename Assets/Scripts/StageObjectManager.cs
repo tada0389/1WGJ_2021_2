@@ -72,9 +72,10 @@ public class StageObjectManager : MonoBehaviour
 
     private void Start()
     {
-        staticRotateSpeed = rotateSpeed;
+        staticRotateSpeed = rotateSpeed; 
+        if (trail != null) trail.SetOmega(rotateSpeed);
 
-        foreach(var obj in objects)
+        foreach (var obj in objects)
         {
             obj.Init(new Vector2(120f, 7.0f), transform.position);
         }
@@ -90,10 +91,6 @@ public class StageObjectManager : MonoBehaviour
             return;
         }
 
-        rotateSpeed += rotateSpeedAccel * Time.deltaTime;
-        staticRotateSpeed = rotateSpeed;
-        if (trail != null) trail.SetOmega(rotateSpeed);
-
         // 回転
         transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z + rotateSpeed * Time.deltaTime);
 
@@ -108,6 +105,10 @@ public class StageObjectManager : MonoBehaviour
         {
             return;
         }
+
+        rotateSpeed += rotateSpeedAccel * Time.deltaTime;
+        staticRotateSpeed = rotateSpeed;
+        if (trail != null) trail.SetOmega(rotateSpeed);
 
         // オブジェクトを生成
         rotateSum += rotateSpeed * Time.deltaTime;
