@@ -49,6 +49,8 @@ namespace MainGame.Actor
 
                 foreach (var obj in destoryObjects) obj.SetActive(false);
                 Parent.color.Hide();
+
+                PlayerPrefs.SetFloat("highscore", StageObjectManager.highScore);
             }
 
             // ステートが終了したときに呼ばれるメソッド

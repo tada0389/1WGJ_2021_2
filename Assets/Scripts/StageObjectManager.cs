@@ -62,7 +62,7 @@ public class StageObjectManager : MonoBehaviour
     private RotationTrailController trail;
 
     private float score = 0.0f;
-    private static float highScore = 0.0f;
+    public static float highScore = 0.0f;
 
     public static float staticRotateSpeed;
 
@@ -82,6 +82,7 @@ public class StageObjectManager : MonoBehaviour
 
         curPattern = patterns[Random.Range(0, patterns.Count)];
         curPattern.Reset();
+        highScore = PlayerPrefs.GetFloat("highscore", 0);
     }
 
     private void Update()

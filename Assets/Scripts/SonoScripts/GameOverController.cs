@@ -48,7 +48,7 @@ public class GameOverController : MonoBehaviour
     public void OnRankingClick()
     {
         // ランキング処理
-        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(PlayerPrefs.GetFloat("highscore", 0));
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(StageObjectManager.highScore);
     }
 
     public void OnWholeClick()
