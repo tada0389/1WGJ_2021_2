@@ -93,10 +93,10 @@ namespace TadaLib
                 if (hitDownRight) upLength = Mathf.Max(upLength, length - hitDownRight.distance);
                 
                 // 盛り上がった
-                if(upLength > -0.03f)
+                if(upLength > -0.02f)
                 {
                     // 上昇値を控えめにする
-                    upLength = Mathf.Min(upLength, halfSize.y * 0.3f);
+                    upLength = Mathf.Min(upLength, halfSize.y * 0.8f);
                     ButtomCollide = true;
                     float rotZ = transform.eulerAngles.z * Mathf.Deg2Rad + Mathf.PI / 2.0f; // 要調整
                     Vector2 add = new Vector2(Mathf.Cos(rotZ), Mathf.Sin(rotZ)) * upLength;
