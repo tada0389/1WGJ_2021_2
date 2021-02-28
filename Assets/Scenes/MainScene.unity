@@ -1517,6 +1517,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &803580540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9120690143507254254, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8364456170979024709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &835271699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5197,6 +5203,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3382809266433099034, guid: a1c70de85f68df14ba38c702ca85a12e,
         type: 3}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateJump.appealEff
+      value: 
+      objectReference: {fileID: 803580540}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateJump.appealEff2
+      value: 
+      objectReference: {fileID: 941258325}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateJump.appealGreadUpPosYThr
+      value: 10.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9120690143507254248, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: m_IsActive

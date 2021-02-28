@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackGroundRotator : MonoBehaviour
+public class BackgroundRotator : MonoBehaviour
 {
     [SerializeField]
     private float rotateSpeed = 45.0f;

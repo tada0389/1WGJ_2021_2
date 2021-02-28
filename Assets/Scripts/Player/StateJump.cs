@@ -30,7 +30,12 @@ namespace MainGame.Actor
 
             // アピールエフェクト
             [SerializeField]
-            private ParticleSystem appearlEff;
+            private ParticleSystem appealEff;
+            [SerializeField]
+            private ParticleSystem appealEff2;
+
+            [SerializeField]
+            private float appealGreadUpPosYThr = 9.0f;
 
             // ジャンプSE
             [SerializeField]
@@ -111,9 +116,18 @@ namespace MainGame.Actor
                 {
                     if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft, false))
                     {
-                        Parent.AddAppealGauge();
-                        appearlEff.gameObject.SetActive(true);
-                        appearlEff.Play();
+                        if (Parent.Position.y < appealGreadUpPosYThr)
+                        {
+                            Parent.AddAppealGauge();
+                            appealEff.gameObject.SetActive(true);
+                            appealEff.Play();
+                        }
+                        else
+                        {
+                            Parent.AddAppealGauge(2);
+                            appealEff2.gameObject.SetActive(true);
+                            appealEff2.Play();
+                        }
                         Parent.color.Flash(); // 本体を光らせる
                         Parent.audioSource.PlayOneShot(appealSE);
                         doneAppeal = true;
