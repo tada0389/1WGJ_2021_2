@@ -89,7 +89,7 @@ namespace MainGame.Actor
                 }
 
                 // 接地してたらwalkステートへ　ただ、一定時間は無視する(ジャンプできなくなるので)
-                if (Parent.trb.ButtomCollide && Timer >= (0.4f / 5.0f))
+                if (Parent.trb.ButtomCollide && Timer >= (0.4f / 2.0f))
                 {
                     ChangeState((int)eState.Walk);
                     return;
