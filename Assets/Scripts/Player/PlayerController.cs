@@ -58,6 +58,9 @@ namespace MainGame.Actor
         [SerializeField]
         private AppealGaugeController appealGaugeController;
 
+        [SerializeField]
+        private GameOverController gameOverController;
+
         private AudioSource audioSource;
 
         private SpriteColor color;

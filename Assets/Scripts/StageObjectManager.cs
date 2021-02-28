@@ -66,7 +66,7 @@ public class StageObjectManager : MonoBehaviour
 
     public static float staticRotateSpeed;
 
-    public static bool isTitle = false;
+    public static bool isTitle = true;
 
     public static bool isDead = false;
 
@@ -136,10 +136,5 @@ public class StageObjectManager : MonoBehaviour
                 objects.Add(obj);
             }
         }
-    }
-
-    public void OnTitleClicked()
-    {
-        isTitle = false;
     }
 }

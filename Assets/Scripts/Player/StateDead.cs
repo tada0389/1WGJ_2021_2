@@ -25,6 +25,9 @@ namespace MainGame.Actor
             [SerializeField]
             private List<GameObject> destoryObjects;
 
+            private Timer timer;
+            private bool isGameOver;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -39,7 +42,10 @@ namespace MainGame.Actor
                 // カメラ揺らす
                 CameraSpace.CameraShaker.Shake(0.2f, 0.5f);
 
-                Time.timeScale = 0.3f;
+                Time.timeScale = 0.7f;
+                StageObjectManager.isDead = true;
+                timer = new Timer(0.5f);
+                isGameOver = false;
 
                 foreach (var obj in destoryObjects) obj.SetActive(false);
                 Parent.color.Hide();
@@ -54,12 +60,10 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
-                if (Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseLeft) && !sceneLoaded)
+                if (!isGameOver&& timer.IsTimeout())
                 {
-                    sceneLoaded = true;
-                    StageObjectManager.isDead = true;
-                    // 再リロード
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+                    Parent.gameOverController.StartGameOver();
+                    isGameOver = true;
                 }
             }
         }
