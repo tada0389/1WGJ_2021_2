@@ -3111,6 +3111,11 @@ PrefabInstance:
       propertyPath: stateDead.destoryObjects.Array.data[2]
       value: 
       objectReference: {fileID: 170278071}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateSuper.dashSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 93a0bb196d5657445830c22c1af8c929, type: 3}
     - target: {fileID: 8377989481809904981, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: m_RootOrder
