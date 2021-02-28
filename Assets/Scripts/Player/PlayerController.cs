@@ -105,7 +105,7 @@ namespace MainGame.Actor
         // 無敵状態になれるか
         private bool MutekiRequest()
         {
-            return appealGauge >= needAppealGauge;
+            return appealGauge >= needAppealGauge || StageObjectManager.isTitle;
         }
 
         private void UseAppealGauge()

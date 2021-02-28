@@ -118,13 +118,19 @@ namespace MainGame.Actor
                     {
                         if (Parent.Position.y < appealGreadUpPosYThr)
                         {
-                            Parent.AddAppealGauge();
+                            if (!StageObjectManager.isTitle)
+                            {
+                                Parent.AddAppealGauge();
+                            }
                             appealEff.gameObject.SetActive(true);
                             appealEff.Play();
                         }
                         else
                         {
-                            Parent.AddAppealGauge(2);
+                            if (!StageObjectManager.isTitle)
+                            {
+                                Parent.AddAppealGauge(2);
+                            }
                             appealEff2.gameObject.SetActive(true);
                             appealEff2.Play();
                         }
