@@ -60,6 +60,12 @@ public class SpringAnimation : MonoBehaviour
         var springPos = springBody.transform.localPosition;
         springPos.y = springDefaultPosY + newPos * 0.25f;
         springBody.transform.localPosition = springPos;
+
+        // ある程度以上ちいなくなったら終了
+        if(strength <= 0.05f)
+        {
+            isAnimating = false;
+        }
     }
 
     public void StartAnim()
