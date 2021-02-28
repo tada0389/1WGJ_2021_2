@@ -101,6 +101,8 @@ namespace TadaLib
                     float rotZ = transform.eulerAngles.z * Mathf.Deg2Rad + Mathf.PI / 2.0f; // 要調整
                     Vector2 add = new Vector2(Mathf.Cos(rotZ), Mathf.Sin(rotZ)) * upLength;
                     transform.position += (Vector3)add;
+                    // originも変更
+                    origin.y += upLength;
                 }
             }
             // 上方向
