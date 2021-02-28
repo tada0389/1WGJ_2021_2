@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-/// <summary>
-/// 惑星の回転速度と同じ速度で動く通常のオブジェクト
-/// </summary>
 
-public class StaticStageObject : BaseStageObject
+public class SpringStageObject : BaseStageObject
 {
     [SerializeField]
     private ParticleSystem breakEffPrefab;
-
-    [SerializeField]
-    private bool killObject = false;
 
     [SerializeField]
     private AudioClip DestroySE;
 
     private AudioSource audioSource;
 
+    [SerializeField]
+    private float springJumpYPosThr = 8.0f;
+
     //Zakky
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "muteki")
@@ -32,24 +30,28 @@ public class StaticStageObject : BaseStageObject
             // 吹き飛ぶ
             BlowedOff();
             var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
-            foreach(var col in cols)
+            foreach (var col in cols)
             {
                 Destroy(col);
                 //col.enabled = false;
             }
-            foreach(Transform child in transform)
+            foreach (Transform child in transform)
             {
                 //ふっとんだとき回転させる(Zakky)
                 child.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
             }
         }
-        else if (killObject)
+        else
         {
-            // プレイヤーなら倒す
+            // もし一定以上、高さがあるなら上から来たということでばね発動
+            // プレイヤーならばねジャンプさせる
             MainGame.Actor.PlayerController player = collision.GetComponent<MainGame.Actor.PlayerController>();
-            if(player != null)
+            if (player != null)
             {
-                player.DoKill();
+                if (player.Position.y >= springJumpYPosThr)
+                {
+                    player.DoSpringJump();
+                }
             }
         }
     }
