@@ -115,8 +115,8 @@ namespace MainGame.Actor
                         appearlEff.gameObject.SetActive(true);
                         appearlEff.Play();
                         Parent.color.Flash(); // 本体を光らせる
-                        doneAppeal = true;
                         Parent.audioSource.PlayOneShot(appealSE);
+                        doneAppeal = true;
                     }
 
                     // アピールチャンスの円を書く

@@ -34,6 +34,9 @@ namespace MainGame.Actor
             private AudioClip jumpSE;
 
             [SerializeField]
+            private AudioClip appealSE;
+
+            [SerializeField]
             private AppealChanceCircle circle;
 
             private bool doneAppeal;
@@ -101,6 +104,7 @@ namespace MainGame.Actor
                         appearlEff.gameObject.SetActive(true);
                         appearlEff.Play();
                         Parent.color.Flash(); // 本体を光らせる
+                        Parent.audioSource.PlayOneShot(appealSE);
                         doneAppeal = true;
                     }
 
