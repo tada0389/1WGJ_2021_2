@@ -24,6 +24,10 @@ namespace MainGame.Actor
             [SerializeField]
             private ParticleSystem mutekiEff;
 
+            // ダッシュSE
+            [SerializeField]
+            private AudioClip dashSE;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -39,6 +43,8 @@ namespace MainGame.Actor
 
                 mutekiEff.gameObject.SetActive(true);
                 mutekiEff.Play();
+
+                Parent.audioSource.PlayOneShot(dashSE);
             }
 
             // ステートが終了したときに呼ばれるメソッド
