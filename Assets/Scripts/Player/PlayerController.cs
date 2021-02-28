@@ -16,6 +16,7 @@ namespace MainGame.Actor
         {
             Walk, // 通常時
             Jump, // ジャンプ時
+            SpringJump, // ばねジャンプ時
             Fall, // 落下時
             Super, // 無敵時
             Dead, // 死亡時
@@ -29,6 +30,8 @@ namespace MainGame.Actor
         private StateWalk stateWalk;
         [SerializeField]
         private StateJump stateJump;
+        [SerializeField]
+        private StateSpringJump stateSpringJump;
         [SerializeField]
         private StateFall stateFall;
         [SerializeField]
@@ -72,6 +75,7 @@ namespace MainGame.Actor
             // ステート登録
             stateMachine.AddState((int)eState.Walk, stateWalk);
             stateMachine.AddState((int)eState.Jump, stateJump);
+            stateMachine.AddState((int)eState.SpringJump, stateSpringJump);
             stateMachine.AddState((int)eState.Fall, stateFall);
             stateMachine.AddState((int)eState.Super, stateSuper);
             stateMachine.AddState((int)eState.Dead, stateDead);
@@ -118,6 +122,16 @@ namespace MainGame.Actor
         {
             if(stateMachine.CurrentStateId != (int)eState.Dead)
                 stateMachine.ChangeState((int)eState.Dead);
+        }
+
+        // 強制的にばねジャンプへ
+        public void DoSpringJump()
+        {
+            int id = stateMachine.CurrentStateId;
+            if (id != (int)eState.Dead && id != (int)eState.SpringJump && id != (int)eState.Super)
+            {
+                stateMachine.ChangeState((int)eState.SpringJump);
+            }
         }
 
         //public void AudioPlay(AudioClip clip)

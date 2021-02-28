@@ -246,6 +246,14 @@ MonoBehaviour:
     appearlEff: {fileID: 9120690143507254254}
     jumpSE: {fileID: 8300000, guid: 1afaba18d5b2ca449822727c25307348, type: 3}
     circle: {fileID: 2807357552791846920}
+  stateSpringJump:
+    MaxAbsSpeed: {x: 0.5, y: 0}
+    Accel: {x: 0, y: -0.3}
+    jumpPower: 0.25
+    appealEnableSpeed: 0.01
+    appearlEff: {fileID: 9120690143507254254}
+    jumpSE: {fileID: 8300000, guid: 1afaba18d5b2ca449822727c25307348, type: 3}
+    circle: {fileID: 2807357552791846920}
   stateFall:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: 0, y: -0.3}
@@ -261,6 +269,7 @@ MonoBehaviour:
     Accel: {x: 0, y: 0}
     deadEff: {fileID: 7056918062692096038}
     deadSE: {fileID: 8300000, guid: 2b705504eedbf9e428c94044c21e1eec, type: 3}
+    destoryObjects: []
   needAppealGauge: 25
   addAppealGaugeAmount: 10
   maxAppealGauge: 100
