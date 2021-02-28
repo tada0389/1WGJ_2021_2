@@ -37,6 +37,9 @@ namespace MainGame.Actor
             private AudioClip jumpSE;
 
             [SerializeField]
+            private AudioClip appealSE;
+
+            [SerializeField]
             private AppealChanceCircle circle;
 
             private bool doneAppeal;
@@ -113,6 +116,7 @@ namespace MainGame.Actor
                         appearlEff.Play();
                         Parent.color.Flash(); // 本体を光らせる
                         doneAppeal = true;
+                        Parent.audioSource.PlayOneShot(appealSE);
                     }
 
                     // アピールチャンスの円を書く
