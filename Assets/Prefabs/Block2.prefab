@@ -52,7 +52,8 @@ MonoBehaviour:
   maxAbsSpeed: {x: 10, y: 0.5}
   breakEffPrefab: {fileID: 3063103095071385139, guid: f57358032eda81d4980bdbde8a9b7f24,
     type: 3}
-  DestroySE: {fileID: 8300000, guid: d6fc1ecb274fa8b409266167adf9e215, type: 3}
+  killObject: 0
+  DestroySE: {fileID: 8300000, guid: df52370274c83eb4c86614b2e6b44530, type: 3}
 --- !u!50 &7443533686925524931
 Rigidbody2D:
   serializedVersion: 4
