@@ -398,7 +398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\u30FB<nobr><space=12.5>\u5DE6<space=-62.51><voffset=1em><size=50%>\u3072\u3060\u308A</size></voffset><space=-12.5></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30B8\u30E3\u30F3\u30D7\n\u30FB<nobr><space=12.4975>\u7A7A\u4E2D<space=-112.5075><voffset=1em><size=50%>\u304F\u3046\u3061\u3085\u3046</size></voffset><space=-12.4975></nobr>\u3067\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F<nobr><space=12.5>\u5DE6<space=-62.51><voffset=1em><size=50%>\u3072\u3060\u308A</size></voffset><space=-12.5></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30D4\u30FC\u30EB\n\u30FB<nobr>\u53F3<space=-50.0075><voffset=1em><size=50%>\u307F\u304E</size></voffset><space=0.002498627></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30BF\u30C3\u30AF\uFF08\u30A2\u30D4\u30FC\u30EB\u30B2\u30FC\u30B8<nobr>\u6D88\u8CBB<space=-100.0125><voffset=1em><size=50%>\u3057\u3087\u3046\u3072</size></voffset><space=0.007499695></nobr>\uFF09"
+  m_text: "\n\u30FB<nobr><space=12.5>\u5DE6<space=-62.51><voffset=1em><size=50%>\u3072\u3060\u308A</size></voffset><space=-12.5></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30B8\u30E3\u30F3\u30D7\uFF08<nobr>\u62BC<space=-37.5075><voffset=1em><size=50%>\u304A</size></voffset><space=12.5025></nobr>\u3057\u305F<nobr>\u9577<space=-50.0075><voffset=1em><size=50%>\u306A\u304C</size></voffset><space=0.002498627></nobr>\u3055\u3067<nobr>\u9AD8<space=-50.01><voffset=1em><size=50%>\u305F\u304B</size></voffset><space=0></nobr>\u3055\u304C<nobr>\u5909<space=-37.5075><voffset=1em><size=50%>\u304B</size></voffset><space=12.5025></nobr>\u308F\u308A\u307E\u3059\uFF09\n\u30FB<nobr><space=12.4975>\u7A7A\u4E2D<space=-112.5075><voffset=1em><size=50%>\u304F\u3046\u3061\u3085\u3046</size></voffset><space=-12.4975></nobr>\u3067\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F<nobr><space=12.5>\u5DE6<space=-62.51><voffset=1em><size=50%>\u3072\u3060\u308A</size></voffset><space=-12.5></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30D4\u30FC\u30EB\n\u30FB<nobr>\u53F3<space=-50.0075><voffset=1em><size=50%>\u307F\u304E</size></voffset><space=0.002498627></nobr>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30BF\u30C3\u30AF\uFF08\u30A2\u30D4\u30FC\u30EB\u30B2\u30FC\u30B8<nobr>\u6D88\u8CBB<space=-100.0125><voffset=1em><size=50%>\u3057\u3087\u3046\u3072</size></voffset><space=0.007499695></nobr>\uFF09"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 637fb4956600b45b28af8250b2d94095, type: 2}
   m_sharedMaterial: {fileID: 5204504407756332563, guid: 637fb4956600b45b28af8250b2d94095,
@@ -473,7 +473,7 @@ MonoBehaviour:
   rubyShowType: 0
   allVCompensationRuby: 0
   allVCompensationRubyLineHeight: 1.945em
-  m_uneditedText: "\n\u30FB<r=\u3072\u3060\u308A>\u5DE6</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30B8\u30E3\u30F3\u30D7\n\u30FB<r=\u304F\u3046\u3061\u3085\u3046>\u7A7A\u4E2D</r>\u3067\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F<r=\u3072\u3060\u308A>\u5DE6</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30D4\u30FC\u30EB\n\u30FB<r=\u307F\u304E>\u53F3</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30BF\u30C3\u30AF\uFF08\u30A2\u30D4\u30FC\u30EB\u30B2\u30FC\u30B8<r=\u3057\u3087\u3046\u3072>\u6D88\u8CBB</r>\uFF09"
+  m_uneditedText: "\n\u30FB<r=\u3072\u3060\u308A>\u5DE6</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30B8\u30E3\u30F3\u30D7\uFF08<r=\u304A>\u62BC</r>\u3057\u305F<r=\u306A\u304C>\u9577</r>\u3055\u3067<r=\u305F\u304B>\u9AD8</r>\u3055\u304C<r=\u304B>\u5909</r>\u308F\u308A\u307E\u3059\uFF09\n\u30FB<r=\u304F\u3046\u3061\u3085\u3046>\u7A7A\u4E2D</r>\u3067\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F<r=\u3072\u3060\u308A>\u5DE6</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30D4\u30FC\u30EB\n\u30FB<r=\u307F\u304E>\u53F3</r>\u30AF\u30EA\u30C3\u30AF\uFF1A\u30A2\u30BF\u30C3\u30AF\uFF08\u30A2\u30D4\u30FC\u30EB\u30B2\u30FC\u30B8<r=\u3057\u3087\u3046\u3072>\u6D88\u8CBB</r>\uFF09"
 --- !u!222 &137679553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5222,6 +5222,16 @@ PrefabInstance:
         type: 3}
       propertyPath: stateJump.appealGreadUpPosYThr
       value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateJump.jumpEnableDuration
+      value: 0.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: stateFall.rejumpEnableDuration
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8377989481809904976, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
