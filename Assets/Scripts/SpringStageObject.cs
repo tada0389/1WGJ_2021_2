@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
+[RequireComponent(typeof(SpringAnimation))]
 public class SpringStageObject : BaseStageObject
 {
     [SerializeField]
@@ -17,10 +18,16 @@ public class SpringStageObject : BaseStageObject
     [SerializeField]
     private float springJumpYPosThr = 8.0f;
 
+    private SpringAnimation anim;
+
+    private bool flag;
+
     //Zakky
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<SpringAnimation>();
+        flag = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +48,7 @@ public class SpringStageObject : BaseStageObject
                 child.gameObject.transform.DOLocalRotate(new Vector3(0, 0, 3600f), 1f, RotateMode.FastBeyond360);
             }
         }
-        else
+        else if(!flag)
         {
             // もし一定以上、高さがあるなら上から来たということでばね発動
             // プレイヤーならばねジャンプさせる
@@ -51,6 +58,16 @@ public class SpringStageObject : BaseStageObject
                 if (player.Position.y >= springJumpYPosThr)
                 {
                     player.DoSpringJump();
+                    anim.StartAnim();
+                    flag = true;
+
+                    // 当たり判定消す
+                    var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
+                    foreach (var col in cols)
+                    {
+                        Destroy(col);
+                        //col.enabled = false;
+                    }
                 }
             }
         }

@@ -128,7 +128,7 @@ namespace MainGame.Actor
         public void DoSpringJump()
         {
             int id = stateMachine.CurrentStateId;
-            if (id != (int)eState.Dead && id != (int)eState.SpringJump && id != (int)eState.Super)
+            if (id != (int)eState.Dead && id != (int)eState.Super)
             {
                 stateMachine.ChangeState((int)eState.SpringJump);
             }
