@@ -249,7 +249,7 @@ MonoBehaviour:
   stateSpringJump:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: 0, y: -0.3}
-    jumpPower: 0.25
+    jumpPower: 0.258
     appealEnableSpeed: 0.01
     appearlEff: {fileID: 9120690143507254254}
     jumpSE: {fileID: 8300000, guid: 1afaba18d5b2ca449822727c25307348, type: 3}
@@ -264,6 +264,7 @@ MonoBehaviour:
     power: {x: 2.5, y: 0.12}
     mutekiDuration: 1
     mutekiEff: {fileID: 8377989481809904982}
+    dashSE: {fileID: 0}
   stateDead:
     MaxAbsSpeed: {x: 0.5, y: 0}
     Accel: {x: 0, y: 0}
@@ -275,6 +276,7 @@ MonoBehaviour:
   maxAppealGauge: 100
   rotater: {fileID: 8364456171611795681}
   appealGaugeController: {fileID: 0}
+  gameOverController: {fileID: 0}
 --- !u!61 &8364456170776636687
 BoxCollider2D:
   m_ObjectHideFlags: 0

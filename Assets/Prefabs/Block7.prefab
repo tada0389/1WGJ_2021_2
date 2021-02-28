@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: -6819943855432272527}
   - component: {fileID: 7976877729531760468}
   - component: {fileID: 481407057213091971}
+  - component: {fileID: 4614328845796320074}
   m_Layer: 8
   m_Name: Block7
   m_TagString: Untagged
@@ -244,7 +245,7 @@ MonoBehaviour:
   breakEffPrefab: {fileID: 3063103095071385139, guid: f57358032eda81d4980bdbde8a9b7f24,
     type: 3}
   DestroySE: {fileID: 8300000, guid: d6fc1ecb274fa8b409266167adf9e215, type: 3}
-  springJumpYPosThr: 7.2
+  springJumpYPosThr: 7.02
 --- !u!50 &7976877729531760468
 Rigidbody2D:
   serializedVersion: 4
@@ -337,7 +338,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.24722221
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -362,6 +363,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4614328845796320074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010943105236231241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52e858d3a0efba4da85aaacb323b553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPlate: {fileID: 4862053974276682671}
+  springBody: {fileID: 5726209209149651355}
+  sinkStrength: 1
+  resistibility: 0.6
+  period: 0.4
 --- !u!1 &5726209209149651355
 GameObject:
   m_ObjectHideFlags: 0
