@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: b94942fd1e5d51e47a96c5ab2203456a
+  - enabled: 1
     path: Assets/KoitanLib/Scenes/ManagerScene.unity
     guid: c2f8865b69a22154c8b87b75e151d0af
-  - enabled: 1
+  - enabled: 0
     path: Assets/KoitanLib/Scenes/DebugScene.unity
     guid: d5c62f92208900a4f8715052b0189741
   - enabled: 1
