@@ -34,6 +34,8 @@ public class GameOverController : MonoBehaviour
         homeButton.transform.DOScale(Vector3.one, 0.1f);
         rankingButton.transform.DOScale(Vector3.one, 0.1f);
         wholeButton.transform.localScale = Vector3.one;
+        homeButton.transform.DORotate(Vector3.back * 10, 0.5f).SetEase(Ease.InOutExpo).SetLoops(-1, LoopType.Yoyo);
+        rankingButton.transform.DORotate(Vector3.back * 10, 0.5f).SetEase(Ease.InOutExpo).SetLoops(-1, LoopType.Yoyo);
     }
 
     public void OnHomeClick()
