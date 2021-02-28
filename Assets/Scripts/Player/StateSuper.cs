@@ -63,7 +63,7 @@ namespace MainGame.Actor
                 Parent.Velocity = new Vector2(Mathf.Max(1.0f, Parent.Velocity.x), Parent.Velocity.y);
 
                 // 接地してたらwalkステートへ　ただ、一定時間は無視する(ジャンプできなくなるので)
-                if (Parent.trb.ButtomCollide && Timer >= (0.4f / 2.0f))
+                if (Parent.trb.ButtomCollide && Timer >= ((50.0f / StageObjectManager.staticRotateSpeed) * 0.2f))
                 {
                     // エフェクトも出す
                     var obj = Instantiate(earthEffPrefab, Parent.transform.position - new Vector3(-0.05f, 0.0f), Quaternion.identity);

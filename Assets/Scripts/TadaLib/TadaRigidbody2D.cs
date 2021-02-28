@@ -93,7 +93,7 @@ namespace TadaLib
                 if (hitDownRight) upLength = Mathf.Max(upLength, length - hitDownRight.distance);
                 
                 // 盛り上がった
-                if(upLength > -0.1f)
+                if(upLength > -0.03f)
                 {
                     // 上昇値を控えめにする
                     upLength = Mathf.Min(upLength, halfSize.y * 0.3f);
