@@ -41,6 +41,9 @@ namespace MainGame.Actor
 
             private bool doneAppeal;
 
+            // ばねに飛んでから無敵の時間
+            private float mutekiTime = 0.1f;
+
             // ステートが始まった時に呼ばれるメソッド
             public override void OnStart()
             {
@@ -82,10 +85,13 @@ namespace MainGame.Actor
                 }
 
                 // 自身の左右が壁に当たったら死亡
-                if (Parent.trb.RightCollide || Parent.trb.LeftCollide)
+                if (Timer >= (mutekiTime * (50.0f / StageObjectManager.staticRotateSpeed)))
                 {
-                    ChangeState((int)eState.Dead);
-                    return;
+                    if (Parent.trb.RightCollide || Parent.trb.LeftCollide)
+                    {
+                        ChangeState((int)eState.Dead);
+                        return;
+                    }
                 }
 
                 // 接地してたらwalkステートへ　ただ、一定時間は無視する(ジャンプできなくなるので)
