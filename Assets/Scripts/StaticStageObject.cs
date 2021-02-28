@@ -34,7 +34,8 @@ public class StaticStageObject : BaseStageObject
             var cols = transform.GetChild(0).GetComponents<Collider2D>(); // 無理やりだけど
             foreach(var col in cols)
             {
-                col.enabled = false;
+                Destroy(col);
+                //col.enabled = false;
             }
             foreach(Transform child in transform)
             {
