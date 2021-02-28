@@ -64,6 +64,9 @@ namespace MainGame.Actor
         [SerializeField]
         private GameOverController gameOverController;
 
+        [SerializeField]
+        private AudioClip gaugeSE;
+
         private AudioSource audioSource;
 
         private SpriteColor color;
@@ -113,6 +116,16 @@ namespace MainGame.Actor
 
         private void AddAppealGauge()
         {
+            //ゲージの本数増えたらSE鳴らす(Zakky)
+            {
+                int nextPowerNum = Mathf.Min((appealGauge + addAppealGaugeAmount) / needAppealGauge, maxAppealGauge / needAppealGauge);
+                int nowPowerNum = appealGauge / needAppealGauge;
+                if (nextPowerNum > nowPowerNum)
+                {
+                    audioSource.PlayOneShot(gaugeSE);
+                }
+            }
+
             appealGauge = Mathf.Min(appealGauge + addAppealGaugeAmount, maxAppealGauge);
             appealGaugeController.SetGauge(appealGauge, maxAppealGauge, needAppealGauge);
         }
@@ -133,10 +146,5 @@ namespace MainGame.Actor
                 stateMachine.ChangeState((int)eState.SpringJump);
             }
         }
-
-        //public void AudioPlay(AudioClip clip)
-        //{
-        //    audioSource.PlayOneShot(clip);
-        //}
     }
 } // namespace Main.Actor
