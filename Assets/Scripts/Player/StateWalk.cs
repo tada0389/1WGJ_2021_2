@@ -21,7 +21,7 @@ namespace MainGame.Actor
                 Parent.Accel = this.Accel;
 
                 // 回転
-                Parent.rotater.StartRotate();
+                Parent.rotater.Rotate(1.0f);
             }
 
             // ステートが終了したときに呼ばれるメソッド
@@ -33,6 +33,9 @@ namespace MainGame.Actor
             // 毎フレーム呼ばれる関数
             public override void Proc()
             {
+                if (Parent.Position.x < 120.0f) Parent.rotater.Rotate(0.5f);
+                else Parent.rotater.Rotate(1.0f);
+
                 // 無敵モード
                 if (Parent.MutekiRequest() && Parent.input.GetButtonDown(TadaInput.ButtonCode.MouseRight))
                 {
