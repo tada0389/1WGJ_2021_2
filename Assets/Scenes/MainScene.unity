@@ -5461,7 +5461,7 @@ PrefabInstance:
     - target: {fileID: 8364456170776636686, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: stateFall.rejumpEnableDuration
-      value: 0.05
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8377989481809904976, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
