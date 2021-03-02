@@ -142,6 +142,12 @@ namespace MainGame.Actor
                     // アピールチャンスの円を書く
                     if (Parent.Velocity.y >= 0.0f)
                     {
+                        //もしボタン押してアピールできる状態なら
+                        if (Mathf.Abs(Parent.Velocity.y) <= appealEnableSpeed)
+                        {
+                            //circleの色を押せることをわかりやすくするために変える
+                            circle.AppealColorChenge();
+                        }
                         circle.Show(Mathf.Abs(Parent.Velocity.y));
                     }
                     else circle.Hide();

@@ -5342,6 +5342,26 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2807357552791846920, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: appealCol.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807357552791846920, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: appealCol.g
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807357552791846920, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: appealCol.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807357552791846920, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
+        type: 3}
+      propertyPath: appealCol.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8364456170776636674, guid: ec7014bcd23e8c54a9b1181ecb5dd71c,
         type: 3}
       propertyPath: m_Name

@@ -7,8 +7,14 @@ public class AppealChanceCircle : MonoBehaviour
     [SerializeField]
     private SpriteRenderer renderer;
 
+    Color iniCol;
+    [SerializeField]
+    Color appealCol;
+
     private void Start()
     {
+        iniCol = renderer.color;
+
         renderer.enabled = false;
     }
 
@@ -20,6 +26,17 @@ public class AppealChanceCircle : MonoBehaviour
 
     public void Hide()
     {
+        IniColorChenge();
         renderer.enabled = false;
+    }
+
+    public void AppealColorChenge()
+    {
+        renderer.color = appealCol;
+    }
+
+    private void IniColorChenge() 
+    {
+        renderer.color = iniCol;
     }
 }
